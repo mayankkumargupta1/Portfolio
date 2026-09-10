@@ -38,7 +38,7 @@
   }
 }
 
-/* Subtle CRT Scanlines (minimal & unobtrusive) */
+/* Subtle CRT Scanlines */
 .crt-overlay {
   position: fixed;
   top: 0;
@@ -61,7 +61,7 @@
 }
 
 .box-glow {
-  box-shadow: 0 0 20px rgba(0, 255, 102, 0.1);
+  box-shadow: 0 0 20px rgba(0, 255, 102, 0.12), inset 0 0 12px rgba(0, 255, 102, 0.04);
 }
 
 /* Clean Matrix Buttons */
@@ -75,16 +75,69 @@
   box-shadow: 0 0 12px rgba(0, 255, 102, 0.4);
 }
 
-/* Monospace ASCII Art styling */
+/* Monospace ASCII Art styling - strictly fixed width & aligned */
 .ascii-art {
-  font-family: 'Courier New', Courier, monospace;
-  line-height: 1.05;
-  letter-spacing: -0.05em;
+  font-family: Consolas, 'SF Mono', Monaco, 'Liberation Mono', 'Roboto Mono', 'DejaVu Sans Mono', 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.02;
+  letter-spacing: 0;
   white-space: pre;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Periodic Glitch Effect every 7 seconds */
+@keyframes portrait-glitch {
+  0%, 93.8%, 100% {
+    transform: none;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.35));
+    clip-path: none;
+    opacity: 1;
+  }
+  94.1% {
+    transform: translate(-3px, 1px) skewX(-1.5deg);
+    filter: drop-shadow(-3px 0 #39ff14) drop-shadow(3px 0 #00ffff);
+    clip-path: polygon(0 12%, 100% 12%, 100% 28%, 0 28%);
+  }
+  94.6% {
+    transform: translate(3px, -2px) skewX(1.5deg);
+    filter: drop-shadow(3px 0 #00ff66) drop-shadow(-3px 0 #ff0055);
+    clip-path: polygon(0 50%, 100% 50%, 100% 68%, 0 68%);
+  }
+  95.1% {
+    transform: translate(-2px, 2px);
+    filter: drop-shadow(-2px 0 #39ff14) drop-shadow(2px 0 #00ff66);
+    clip-path: polygon(0 32%, 100% 32%, 100% 46%, 0 46%);
+  }
+  95.6% {
+    transform: translate(2px, -1px) skewX(-1deg);
+    filter: drop-shadow(2px 0 #00ffff) drop-shadow(-2px 0 #00ff66);
+    clip-path: polygon(0 72%, 100% 72%, 100% 88%, 0 88%);
+  }
+  96.1% {
+    transform: translate(-1px, 1px);
+    filter: drop-shadow(-1px 0 #39ff14);
+    clip-path: none;
+    opacity: 0.9;
+  }
+  96.6%, 100% {
+    transform: none;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 102, 0.35));
+    clip-path: none;
+    opacity: 1;
+  }
+}
+
+.glitch-portrait {
+  animation: portrait-glitch 7s infinite;
+  will-change: transform, filter, clip-path;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .crt-overlay {
     display: none;
+  }
+  .glitch-portrait {
+    animation: none !important;
   }
 }

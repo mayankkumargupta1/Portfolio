@@ -2,7 +2,7 @@
 // Minimalist, high-status Hero section with authentic ASCII portrait
 const blogUrl = "https://blogs.mayankkumargupta.com";
 
-// Verbatim ASCII portrait extracted from user's profile README
+// Verbatim ASCII portrait extracted from user's profile README (58 columns x 49 rows)
 const asciiPortrait = `------------------:.                :---------------------
                     +@@@@@++++=+*+#-                      
                 :@@@#***: -*#=. :::*%%-                   
@@ -65,7 +65,7 @@ const asciiPortrait = `------------------:.                :--------------------
         <div class="space-y-2">
           <div class="flex items-center gap-2 text-xs font-mono text-[#00ff66]">
             <span class="inline-block w-2 h-2 bg-[#00ff66] rounded-full animate-ping"></span>
-            <span>Kolkata, India // Available for Opportunities</span>
+            <span>Kolkata, India // Open to Roles</span>
           </div>
 
           <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
@@ -124,16 +124,23 @@ const asciiPortrait = `------------------:.                :--------------------
 
       </div>
 
-      <!-- Right: Authentic ASCII Portrait -->
-      <div class="lg:col-span-5 flex flex-col items-center">
-        <div class="w-full max-w-sm sm:max-w-md bg-[#050807] border border-[#1a3826] p-3 rounded box-glow">
-          <div class="flex items-center justify-between border-b border-[#1a3826] pb-2 mb-2 text-[11px] text-zinc-400 font-mono">
+      <!-- Right: Perfectly Aligned ASCII Portrait with Glitch Effect -->
+      <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <div class="w-fit bg-[#050807] border border-[#1a3826] hover:border-[#00ff66] p-3 sm:p-4 rounded box-glow transition-colors">
+          
+          <div class="flex items-center justify-between border-b border-[#1a3826] pb-2 mb-3 text-[11px] text-zinc-400 font-mono">
             <span class="text-[#00ff66] font-bold">&gt; portrait.ascii</span>
-            <span class="text-[10px]">mayank@arch</span>
+            <span class="text-[10px] text-zinc-500">mayank@arch</span>
           </div>
 
-          <!-- Scaled monospace rendering of exact ASCII art -->
-          <pre class="ascii-art text-[#00ff66] text-[7.5px] sm:text-[8.5px] md:text-[9.5px] leading-[1.05] overflow-x-auto select-none">{asciiPortrait}</pre>
+          <!-- Fixed-width, centered, monospaced ASCII portrait with periodic 7s glitch -->
+          <div class="flex justify-center items-center overflow-hidden">
+            <pre 
+              id="ascii-portrait-el" 
+              class="ascii-art glitch-portrait text-[#00ff66] text-[7px] sm:text-[8px] md:text-[9px] select-none text-center"
+            >{asciiPortrait}</pre>
+          </div>
+
         </div>
       </div>
 
@@ -141,3 +148,38 @@ const asciiPortrait = `------------------:.                :--------------------
 
   </div>
 </section>
+
+<script>
+  // Subtle character glitch synchronizer (every 7 seconds for ~220ms)
+  const portraitEl = document.getElementById('ascii-portrait-el');
+  if (portraitEl) {
+    const originalText = portraitEl.textContent || '';
+    const glitchChars = '01アイウエオカキクケコサシスセソ0123456789µλπ∑⚡∆§#%*';
+
+    function triggerCharGlitch() {
+      if (document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const chars = originalText.split('');
+      const len = chars.length;
+      const numGlitches = Math.floor(Math.random() * 8) + 6;
+      const mutatedIndices: number[] = [];
+
+      for (let i = 0; i < numGlitches; i++) {
+        const idx = Math.floor(Math.random() * len);
+        if (chars[idx] !== '\n' && chars[idx] !== ' ') {
+          mutatedIndices.push(idx);
+          chars[idx] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
+        }
+      }
+
+      portraitEl.textContent = chars.join('');
+
+      setTimeout(() => {
+        portraitEl.textContent = originalText;
+      }, 220);
+    }
+
+    // Trigger glitch at exactly 7 second intervals (with initial offset sync)
+    setInterval(triggerCharGlitch, 7000);
+  }
+</script>
