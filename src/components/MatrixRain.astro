@@ -1,10 +1,10 @@
 ---
-// Matrix Rain Canvas
+// Matrix Rain Canvas with Bright Neon Glow
 ---
 
 <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
-  <canvas id="matrix-canvas" class="w-full h-full opacity-15"></canvas>
-  <div class="absolute inset-0 bg-gradient-to-b from-[#050807]/80 via-transparent to-[#050807]/90"></div>
+  <canvas id="matrix-canvas" class="w-full h-full opacity-32 transition-opacity duration-300"></canvas>
+  <div class="absolute inset-0 bg-gradient-to-b from-[#050807]/50 via-transparent to-[#050807]/70 pointer-events-none"></div>
 </div>
 
 <script>
@@ -16,8 +16,8 @@
     private columns = 0;
     private isRunning = true;
     private lastTime = 0;
-    private fps = 26;
-    private chars = '0123456789ABCDEFアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンµλπ∑⚡∆§';
+    private fps = 28;
+    private chars = '0123456789ABCDEFアイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンµλπ∑⚡∆§*+=#';
 
     constructor() {
       this.canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
@@ -37,7 +37,7 @@
       this.columns = Math.floor(this.canvas.width / this.fontSize);
       this.drops = [];
       for (let i = 0; i < this.columns; i++) {
-        this.drops[i] = Math.floor(Math.random() * -40);
+        this.drops[i] = Math.floor(Math.random() * -45);
       }
     }
 
@@ -64,20 +64,34 @@
       if (now - this.lastTime < 1000 / this.fps) return;
       this.lastTime = now;
 
-      this.ctx.fillStyle = 'rgba(5, 8, 7, 0.09)';
+      // Trail fade
+      this.ctx.fillStyle = 'rgba(5, 8, 7, 0.08)';
       this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
-      this.ctx.font = `${this.fontSize}px monospace`;
+      this.ctx.font = `bold ${this.fontSize}px monospace`;
 
       for (let i = 0; i < this.drops.length; i++) {
         const text = this.chars[Math.floor(Math.random() * this.chars.length)];
         const x = i * this.fontSize;
         const y = this.drops[i] * this.fontSize;
 
-        this.ctx.fillStyle = '#39ff14';
+        // Leading head glyph is electric white/cyan, trail is bright neon phosphor
+        if (Math.random() > 0.88) {
+          this.ctx.fillStyle = '#ffffff';
+          this.ctx.shadowBlur = 12;
+          this.ctx.shadowColor = '#00ff66';
+        } else {
+          this.ctx.fillStyle = '#00ff66';
+          this.ctx.shadowBlur = 8;
+          this.ctx.shadowColor = '#39ff14';
+        }
+
         this.ctx.fillText(text, x, y);
 
-        if (y > this.canvas.height && Math.random() > 0.975) {
+        // Reset shadow for next render passes
+        this.ctx.shadowBlur = 0;
+
+        if (y > this.canvas.height && Math.random() > 0.972) {
           this.drops[i] = 0;
         }
         this.drops[i]++;
