@@ -1,0 +1,163 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Mayank Kumar Gupta // AI/ML & Systems Engineer // Cyber-Brutalist Portfolio",
+  description = "Cyber-Brutalist portfolio of Mayank Kumar Gupta. AI/ML & Backend Systems Engineer specializing in Autonomous Agents, LangGraph, FastAPI, Distributed Systems, and High-Performance Architectures.",
+} = Astro.props;
+
+const siteUrl = "https://mayankkumargupta.com";
+const blogUrl = "https://blogs.mayankkumargupta.com";
+---
+
+<!doctype html>
+<html lang="en" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content="Mayank Kumar Gupta" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#050807" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Mayank Kumar Gupta Portfolio" />
+    <meta property="og:image" content={`${siteUrl}/og-image.png`} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={siteUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={`${siteUrl}/og-image.png`} />
+
+    <!-- Font preconnect & load -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Space+Mono:wght@400;700&display=swap" 
+      rel="stylesheet"
+      media="print" 
+      onload="this.media='all'" 
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&family=Space+Mono:wght@400;700&display=swap" />
+    </noscript>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Mayank Kumar Gupta",
+      "url": siteUrl,
+      "email": "mailto:mayank0evil0side@gmail.com",
+      "jobTitle": "Backend & AI/ML Engineer",
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Lovely Professional University"
+      },
+      "sameAs": [
+        "https://github.com/mayankkumargupta1",
+        "https://linkedin.com/in/mayankkumargupta1",
+        blogUrl
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "LangChain",
+        "LangGraph",
+        "FastAPI",
+        "Python",
+        "TypeScript",
+        "Rust",
+        "Distributed Systems",
+        "Linux"
+      ]
+    })} />
+  </head>
+  <body class="bg-[#050807] text-[#dcfce7] font-mono antialiased selection:bg-[#00ff66] selection:text-[#050807] min-h-screen relative overflow-x-hidden">
+    <!-- CRT Scanline Effect Overlay -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+
+    <!-- Main Content Shell -->
+    <slot />
+
+    <!-- Web Audio Cyber-Brutalist Sound Synthesizer Script -->
+    <script is:inline>
+      (function() {
+        let audioCtx = null;
+        let isMuted = localStorage.getItem('matrix_sound') !== 'true'; // muted by default
+
+        function initAudio() {
+          if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) audioCtx = new AudioContext();
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        }
+
+        function playBeep(freq = 880, type = 'sine', duration = 0.04) {
+          if (isMuted) return;
+          try {
+            initAudio();
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+          } catch(e) {}
+        }
+
+        window.cyberAudio = {
+          click: () => playBeep(980, 'triangle', 0.03),
+          hover: () => playBeep(440, 'sine', 0.015),
+          terminal: () => playBeep(1200, 'square', 0.02),
+          alert: () => playBeep(220, 'sawtooth', 0.1),
+          toggleMute: () => {
+            isMuted = !isMuted;
+            localStorage.setItem('matrix_sound', (!isMuted).toString());
+            if (!isMuted) playBeep(880, 'triangle', 0.08);
+            return !isMuted;
+          },
+          getMuted: () => isMuted
+        };
+
+        // Attach tactical audio to brutalist interactive elements
+        document.addEventListener('click', (e) => {
+          const target = e.target.closest('button, a, input, select');
+          if (target && window.cyberAudio) window.cyberAudio.click();
+        });
+
+        // Initialize CRT preference from localStorage
+        const savedCrt = localStorage.getItem('matrix_crt');
+        if (savedCrt === 'false') {
+          document.body.classList.add('crt-disabled');
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+---
+// Cyber-Brutalist Experience / Operations Log
+
+const experiences = [
+  {
+    org: "Infotech LPU",
+    role: "Software Engineer // Systems Architect",
+    period: "2024 — PRESENT",
+    location: "Punjab, India",
+    status: "CURRENT_MISSION",
+    highlights: [
+      "Engineered high-throughput backend services and real-time WebSocket feeds powering LPU Live for tens of thousands of active campus users.",
+      "Architected fault-tolerant microservices and caching pipelines using FastAPI, PostgreSQL, and Redis.",
+      "Optimized query performance and reduced database round-trip latencies by over 40%."
+    ]
+  },
+  {
+    org: "GradGlobe Pvt. Ltd.",
+    role: "Backend & AI Developer",
+    period: "2023 — 2024",
+    location: "Remote / Hybrid",
+    status: "COMPLETED",
+    highlights: [
+      "Designed and deployed smart university recommendation pipelines and applicant workflow systems on GradGlobe.org.",
+      "Integrated automated document parsing and structured LLM evaluation pipelines for international admissions.",
+      "Built resilient RESTful API layers with comprehensive automated test suites and zero-downtime CI/CD."
+    ]
+  },
+  {
+    org: "Promist Solutions",
+    role: "Software & Systems Engineer",
+    period: "2022 — 2023",
+    location: "India",
+    status: "COMPLETED",
+    highlights: [
+      "Delivered scalable web and cloud solutions for diverse client operations.",
+      "Modernized legacy monolithic endpoints into decoupled, event-driven services.",
+      "Spearheaded automated testing frameworks and Dockerized staging environments."
+    ]
+  },
+  {
+    org: "Lovely Professional University (LPU)",
+    role: "B.Tech in Computer Science & Engineering",
+    period: "ALUMNUS",
+    location: "Punjab, India",
+    status: "CREDENTIAL",
+    highlights: [
+      "Specialized in Artificial Intelligence, Machine Learning, and Distributed Computing Systems.",
+      "Active participant in high-stakes hackathons, competitive programming, and open-source systems architecture."
+    ]
+  }
+];
+---
+
+<section id="experience" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-2 border-[#1a3826] pb-6 gap-4">
+      <div>
+        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
+          // CHRONOLOGY & DEPLOYMENTS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
+          OPERATIONS <span class="text-[#00ff66] text-glow">TIMELINE</span>
+        </h2>
+      </div>
+
+      <div class="text-xs text-zinc-400 font-mono">
+        CLEARANCE: <span class="text-[#39ff14] font-bold">LEVEL_5</span> // VERIFIED
+      </div>
+    </div>
+
+    <!-- Timeline list -->
+    <div class="space-y-6">
+      {experiences.map((exp, idx) => (
+        <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-6 brutal-btn">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#12241b] pb-3 mb-4 gap-2">
+            <div>
+              <span class="text-[10px] font-mono text-zinc-400 mr-2">[LOG_0{idx + 1}]</span>
+              <h3 class="inline text-lg sm:text-xl font-black text-white uppercase">
+                {exp.org}
+              </h3>
+              <span class="text-zinc-400 mx-2">//</span>
+              <span class="text-xs sm:text-sm font-bold text-[#00ff66]">{exp.role}</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono font-bold text-zinc-400 bg-[#050807] px-2.5 py-1 border border-[#1a3826]">
+                {exp.period}
+              </span>
+              <span class={`text-[10px] font-black px-2 py-1 uppercase tracking-wider ${
+                exp.status === 'CURRENT_MISSION' ? 'bg-[#00ff66] text-[#050807]' : 'bg-[#1a3826] text-zinc-400'
+              }`}>
+                {exp.status}
+              </span>
+            </div>
+          </div>
+
+          <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 font-mono">
+            {exp.highlights.map((item) => (
+              <li class="flex items-start gap-2">
+                <span class="text-[#00ff66] font-bold select-none">&gt;</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

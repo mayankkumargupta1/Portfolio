@@ -1,0 +1,37 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MatrixRain from '../components/MatrixRain.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import BlogBanner from '../components/BlogBanner.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Experience from '../components/Experience.astro';
+import TerminalSimulator from '../components/TerminalSimulator.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <!-- Background Matrix Digital Rain -->
+  <MatrixRain />
+
+  <div class="relative z-10 flex flex-col min-h-screen">
+    <!-- Navbar HUD -->
+    <Navbar />
+
+    <!-- Main Content Flow -->
+    <main class="flex-grow">
+      <Hero />
+      <BlogBanner />
+      <Skills />
+      <Projects />
+      <Experience />
+      <TerminalSimulator />
+      <Contact />
+    </main>
+
+    <!-- Footer -->
+    <Footer />
+  </div>
+</Layout>

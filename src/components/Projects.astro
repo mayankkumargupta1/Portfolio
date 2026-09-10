@@ -1,0 +1,175 @@
+---
+// Cyber-Brutalist Projects / Exploits Section
+
+interface Project {
+  id: string;
+  title: string;
+  category: string;
+  status: 'PRODUCTION' | 'ACTIVE' | 'SYSTEM' | 'AI_MODEL';
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  highlight?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    id: "PRJ-01",
+    title: "LPU Live Portal",
+    category: "High-Concurrency Platform",
+    status: "PRODUCTION",
+    description: "Official real-time campus communication platform supporting thousands of concurrent student sessions with low latency, event-driven socket pipelines, and robust authentication.",
+    tags: ["FastAPI", "WebSockets", "React", "PostgreSQL", "Docker"],
+    liveUrl: "https://lpulive.lpu.in",
+    highlight: true
+  },
+  {
+    id: "PRJ-02",
+    title: "GradGlobe.org",
+    category: "Global Intelligence Engine",
+    status: "PRODUCTION",
+    description: "Comprehensive overseas education discovery and mentorship portal featuring intelligent university matching, structured applicant journeys, and automated advisory pipelines.",
+    tags: ["Python", "FastAPI", "Next.js", "TailwindCSS", "PostgreSQL"],
+    liveUrl: "https://gradglobe.org",
+    githubUrl: "https://github.com/mayankkumargupta1",
+    highlight: true
+  },
+  {
+    id: "PRJ-03",
+    title: "Agentic Graph RAG Pipeline",
+    category: "AI / Knowledge Systems",
+    status: "AI_MODEL",
+    description: "Autonomous multi-agent research architecture using LangGraph and Neo4j/Memgraph. Traverses interconnected knowledge nodes to deliver grounded, hallucination-free reasoning.",
+    tags: ["LangGraph", "LangChain", "Neo4j", "Memgraph", "Python"],
+    githubUrl: "https://github.com/mayankkumargupta1",
+    highlight: true
+  },
+  {
+    id: "PRJ-04",
+    title: "Instloo Campus Utility",
+    category: "Full-Stack Ecosystem",
+    status: "ACTIVE",
+    description: "Student utility platform streamlining campus accommodation, peer requests, and localized exchange with lightning-fast caching and clean reactive interfaces.",
+    tags: ["React Native", "FastAPI", "Redis", "Docker"],
+    githubUrl: "https://github.com/mayankkumargupta1"
+  },
+  {
+    id: "PRJ-05",
+    title: "Hamara Basket Bazaar",
+    category: "Commerce Infrastructure",
+    status: "PRODUCTION",
+    description: "High-throughput retail merchant inventory and dispatch system built for localized logistics, live inventory reservations, and zero-downtime ledger consistency.",
+    tags: ["Django", "React", "PostgreSQL", "TailwindCSS"],
+    githubUrl: "https://github.com/mayankkumargupta1"
+  },
+  {
+    id: "PRJ-06",
+    title: "Dynamic Terminal Telemetry",
+    category: "CI/CD & DevOps Automation",
+    status: "SYSTEM",
+    description: "Self-generating SVG profile card engine executing daily GitHub Actions workflows, calculating live uptime, commits, and lines of code through GitHub GraphQL v4.",
+    tags: ["Python", "SVG", "GitHub Actions", "GraphQL v4"],
+    githubUrl: "https://github.com/mayankkumargupta1/mayankkumargupta1"
+  }
+];
+---
+
+<section id="projects" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-2 border-[#1a3826] pb-6 gap-4">
+      <div>
+        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
+          // ARSENAL & EXPLOITS
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
+          FEATURED <span class="text-[#00ff66] text-glow">PROJECTS</span>
+        </h2>
+      </div>
+
+      <div class="text-xs text-zinc-400 font-mono">
+        TOTAL_DEPLOYED: <span class="text-[#39ff14] font-bold">06</span> // PRODUCTION_READY
+      </div>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <article class={`border-2 ${project.highlight ? 'border-[#00ff66]' : 'border-[#1a3826]'} bg-[#0a110d] p-6 brutal-btn flex flex-col justify-between group`}>
+          
+          <div>
+            <!-- Card Header Meta -->
+            <div class="flex items-center justify-between border-b border-[#12241b] pb-3 mb-4">
+              <span class="text-[11px] font-mono text-[#00ff66] font-bold">
+                [{project.id}]
+              </span>
+
+              <span class={`text-[10px] font-black px-2 py-0.5 uppercase tracking-wider ${
+                project.status === 'PRODUCTION' ? 'bg-[#00ff66] text-[#050807]' :
+                project.status === 'AI_MODEL' ? 'bg-[#39ff14] text-[#050807]' :
+                'bg-[#1a3826] text-[#00ff66]'
+              }`}>
+                {project.status}
+              </span>
+            </div>
+
+            <div class="text-[11px] text-zinc-400 uppercase tracking-widest font-semibold mb-1">
+              // {project.category}
+            </div>
+
+            <h3 class="text-xl font-black text-white group-hover:text-[#00ff66] transition-colors mb-3">
+              {project.title}
+            </h3>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-6">
+              {project.description}
+            </p>
+          </div>
+
+          <div>
+            <!-- Tech Stack Tags -->
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              {project.tags.map((tag) => (
+                <span class="text-[10px] font-mono font-bold px-2 py-0.5 bg-[#050807] text-[#00ff66] border border-[#1a3826]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <!-- Action Links -->
+            <div class="flex items-center gap-3 pt-3 border-t border-[#12241b] text-xs font-bold uppercase">
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-[#00ff66] hover:text-[#39ff14] flex items-center gap-1 focus:outline-none focus-visible:underline"
+                  aria-label={`LIVE DEMO for ${project.title}`}
+                >
+                  <span>LIVE DEMO</span>
+                  <span>↗</span>
+                </a>
+              )}
+              {project.githubUrl && (
+                <a 
+                  href={project.githubUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="text-zinc-300 hover:text-white flex items-center gap-1 focus:outline-none focus-visible:underline"
+                  aria-label={`SOURCE code for ${project.title}`}
+                >
+                  <span>SOURCE</span>
+                  <span>↗</span>
+                </a>
+              )}
+            </div>
+          </div>
+
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>

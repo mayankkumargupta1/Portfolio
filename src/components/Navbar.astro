@@ -1,0 +1,259 @@
+---
+// Cyber-Brutalist HUD Navbar
+---
+
+<header class="sticky top-0 z-50 w-full bg-[#050807]/95 border-b-2 border-[#00ff66] backdrop-blur-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      
+      <!-- Brand & Status Telemetry -->
+      <div class="flex items-center gap-3">
+        <a href="#hero" class="group flex items-center gap-2 text-[#00ff66] font-bold text-lg tracking-wider focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff66]">
+          <span class="inline-block bg-[#00ff66] text-[#050807] px-1.5 py-0.5 text-xs font-black uppercase">NODE</span>
+          <span class="group-hover:text-glow transition-all">MAYANK.SYS</span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-2 pl-3 border-l border-[#1a3826] text-xs text-[#00ff66]/70">
+          <span class="inline-block w-2 h-2 rounded-full bg-[#00ff66] animate-pulse"></span>
+          <span class="tracking-widest">NET: ONLINE</span>
+          <span class="text-zinc-600">//</span>
+          <span class="text-zinc-400">NODE_ID: MKG-23</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <nav class="hidden lg:flex items-center gap-6 text-xs uppercase tracking-widest font-semibold" aria-label="Main Navigation">
+        <a href="#about" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 01.ABOUT
+        </a>
+        <a href="#skills" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 02.STACK
+        </a>
+        <a href="#projects" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 03.PROJECTS
+        </a>
+        <a href="#experience" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 04.TIMELINE
+        </a>
+        <a href="#terminal" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 05.CLI
+        </a>
+        <a href="#contact" class="text-zinc-400 hover:text-[#00ff66] hover:text-glow transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00ff66] py-1">
+          // 06.CONTACT
+        </a>
+      </nav>
+
+      <!-- Right HUD Controls & Blog Link -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- Tactical Controls -->
+        <div class="hidden sm:flex items-center gap-1.5 bg-[#0a110d] border border-[#1a3826] p-1">
+          <!-- Matrix Rain Toggle -->
+          <button 
+            id="toggle-rain-btn"
+            type="button" 
+            aria-label="Toggle Matrix Rain Canvas"
+            title="Toggle Matrix Rain"
+            class="px-2 py-1 text-[10px] tracking-wider font-bold uppercase text-[#00ff66] hover:bg-[#00ff66]/10 border border-transparent hover:border-[#00ff66] transition-colors"
+          >
+            RAIN: <span id="rain-status" class="text-[#39ff14]">ON</span>
+          </button>
+
+          <!-- CRT Scanline Toggle -->
+          <button 
+            id="toggle-crt-btn"
+            type="button" 
+            aria-label="Toggle CRT Scanline Overlay"
+            title="Toggle CRT Scanline Overlay"
+            class="px-2 py-1 text-[10px] tracking-wider font-bold uppercase text-[#00ff66] hover:bg-[#00ff66]/10 border border-transparent hover:border-[#00ff66] transition-colors"
+          >
+            CRT: <span id="crt-status" class="text-[#39ff14]">ON</span>
+          </button>
+
+          <!-- Sound FX Toggle -->
+          <button 
+            id="toggle-sfx-btn"
+            type="button" 
+            aria-label="Toggle Cyber Sound Effects"
+            title="Toggle Sound Effects"
+            class="px-2 py-1 text-[10px] tracking-wider font-bold uppercase text-[#00ff66] hover:bg-[#00ff66]/10 border border-transparent hover:border-[#00ff66] transition-colors"
+          >
+            SFX: <span id="sfx-status" class="text-zinc-500">OFF</span>
+          </button>
+        </div>
+
+        <!-- High Visibility Blog Link -->
+        <a 
+          href="https://blogs.mayankkumargupta.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="brutal-btn flex items-center gap-1.5 bg-[#00ff66] text-[#050807] font-black text-xs uppercase tracking-wider px-3 sm:px-4 py-2 border border-[#00ff66] focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        >
+          <span>BLOG</span>
+          <span class="text-xs">↗</span>
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          id="mobile-menu-toggle"
+          type="button"
+          aria-label="Toggle Navigation Menu"
+          class="lg:hidden p-2 text-[#00ff66] border border-[#00ff66] hover:bg-[#00ff66]/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#00ff66]"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="square" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t-2 border-[#1a3826] bg-[#050807] px-4 py-4 space-y-3">
+    <div class="grid grid-cols-2 gap-2 text-xs font-bold uppercase">
+      <a href="#about" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 01.ABOUT
+      </a>
+      <a href="#skills" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 02.STACK
+      </a>
+      <a href="#projects" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 03.PROJECTS
+      </a>
+      <a href="#experience" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 04.TIMELINE
+      </a>
+      <a href="#terminal" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 05.CLI
+      </a>
+      <a href="#contact" class="mobile-nav-link p-2 bg-[#0a110d] border border-[#1a3826] text-[#00ff66] hover:border-[#00ff66]">
+        // 06.CONTACT
+      </a>
+    </div>
+
+    <!-- Mobile HUD Controls -->
+    <div class="pt-2 border-t border-[#1a3826] flex items-center justify-between text-[11px]">
+      <span class="text-zinc-500 font-bold uppercase">HUD CONTROLS:</span>
+      <div class="flex items-center gap-2">
+        <button id="mobile-rain-btn" class="px-2 py-1 bg-[#0a110d] border border-[#00ff66] text-[#00ff66]">RAIN: ON</button>
+        <button id="mobile-crt-btn" class="px-2 py-1 bg-[#0a110d] border border-[#00ff66] text-[#00ff66]">CRT: ON</button>
+        <button id="mobile-sfx-btn" class="px-2 py-1 bg-[#0a110d] border border-zinc-700 text-zinc-400">SFX: OFF</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile drawer toggle
+  const mobileBtn = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+
+  // Rain Canvas Toggle
+  const rainBtn = document.getElementById('toggle-rain-btn');
+  const rainStatus = document.getElementById('rain-status');
+  const mobileRainBtn = document.getElementById('mobile-rain-btn');
+
+  function updateRainUI(isRunning: boolean) {
+    const text = isRunning ? 'ON' : 'OFF';
+    const colorClass = isRunning ? 'text-[#39ff14]' : 'text-zinc-500';
+    if (rainStatus) {
+      rainStatus.textContent = text;
+      rainStatus.className = colorClass;
+    }
+    if (mobileRainBtn) {
+      mobileRainBtn.textContent = `RAIN: ${text}`;
+      mobileRainBtn.className = isRunning 
+        ? 'px-2 py-1 bg-[#0a110d] border border-[#00ff66] text-[#00ff66]' 
+        : 'px-2 py-1 bg-[#0a110d] border border-zinc-700 text-zinc-500';
+    }
+  }
+
+  function handleRainToggle() {
+    if ((window as any).matrixControls) {
+      const state = (window as any).matrixControls.toggle();
+      updateRainUI(state);
+    }
+  }
+
+  rainBtn?.addEventListener('click', handleRainToggle);
+  mobileRainBtn?.addEventListener('click', handleRainToggle);
+
+  // CRT Scanline Toggle
+  const crtBtn = document.getElementById('toggle-crt-btn');
+  const crtStatus = document.getElementById('crt-status');
+  const mobileCrtBtn = document.getElementById('mobile-crt-btn');
+
+  function updateCrtUI(isActive: boolean) {
+    const text = isActive ? 'ON' : 'OFF';
+    const colorClass = isActive ? 'text-[#39ff14]' : 'text-zinc-500';
+    if (crtStatus) {
+      crtStatus.textContent = text;
+      crtStatus.className = colorClass;
+    }
+    if (mobileCrtBtn) {
+      mobileCrtBtn.textContent = `CRT: ${text}`;
+      mobileCrtBtn.className = isActive 
+        ? 'px-2 py-1 bg-[#0a110d] border border-[#00ff66] text-[#00ff66]' 
+        : 'px-2 py-1 bg-[#0a110d] border border-zinc-700 text-zinc-500';
+    }
+  }
+
+  function handleCrtToggle() {
+    const isNowDisabled = document.body.classList.toggle('crt-disabled');
+    localStorage.setItem('matrix_crt', (!isNowDisabled).toString());
+    updateCrtUI(!isNowDisabled);
+  }
+
+  crtBtn?.addEventListener('click', handleCrtToggle);
+  mobileCrtBtn?.addEventListener('click', handleCrtToggle);
+
+  // SFX Audio Toggle
+  const sfxBtn = document.getElementById('toggle-sfx-btn');
+  const sfxStatus = document.getElementById('sfx-status');
+  const mobileSfxBtn = document.getElementById('mobile-sfx-btn');
+
+  function updateSfxUI(isUnmuted: boolean) {
+    const text = isUnmuted ? 'ON' : 'OFF';
+    const colorClass = isUnmuted ? 'text-[#39ff14]' : 'text-zinc-500';
+    if (sfxStatus) {
+      sfxStatus.textContent = text;
+      sfxStatus.className = colorClass;
+    }
+    if (mobileSfxBtn) {
+      mobileSfxBtn.textContent = `SFX: ${text}`;
+      mobileSfxBtn.className = isUnmuted 
+        ? 'px-2 py-1 bg-[#0a110d] border border-[#00ff66] text-[#00ff66]' 
+        : 'px-2 py-1 bg-[#0a110d] border border-zinc-700 text-zinc-500';
+    }
+  }
+
+  function handleSfxToggle() {
+    if ((window as any).cyberAudio) {
+      const isUnmuted = (window as any).cyberAudio.toggleMute();
+      updateSfxUI(isUnmuted);
+    }
+  }
+
+  sfxBtn?.addEventListener('click', handleSfxToggle);
+  mobileSfxBtn?.addEventListener('click', handleSfxToggle);
+
+  // Initialize UI state
+  if (localStorage.getItem('matrix_sound') === 'true') {
+    updateSfxUI(true);
+  }
+  if (document.body.classList.contains('crt-disabled')) {
+    updateCrtUI(false);
+  }
+</script>

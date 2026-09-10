@@ -1,0 +1,80 @@
+---
+// Cyber-Brutalist Footer & System Telemetry
+const currentYear = new Date().getFullYear();
+const blogUrl = "https://blogs.mayankkumargupta.com";
+---
+
+<footer class="border-t-2 border-[#00ff66] bg-[#050807] py-12 text-xs font-mono">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start border-b border-[#1a3826] pb-8 mb-8">
+      
+      <!-- Column 1: System Info -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2 text-[#00ff66] font-bold">
+          <span class="w-2 h-2 bg-[#00ff66]"></span>
+          <span>MAYANK_NODE // REVISION 3.1</span>
+        </div>
+        <p class="text-zinc-400 text-[11px] leading-relaxed">
+          Crafted with Astro 5, Bun runtime, and Tailwind CSS. 
+          Engineered for raw throughput, zero hydration lag, and maximum cyber-brutalist impact.
+        </p>
+      </div>
+
+      <!-- Column 2: Direct Links -->
+      <div class="space-y-1">
+        <div class="text-[#00ff66] font-bold uppercase tracking-wider mb-2">// QUICK TRANSMISSIONS</div>
+        <ul class="space-y-2 text-zinc-300">
+          <li>
+            <a href={blogUrl} target="_blank" rel="noopener noreferrer" class="hover:text-[#00ff66] py-1.5 inline-flex items-center gap-1 focus:outline-none focus-visible:underline">
+              <span>&gt; Technical Blog (blogs.mayankkumargupta.com)</span>
+              <span>↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/mayankkumargupta1" target="_blank" rel="noopener noreferrer" class="hover:text-[#00ff66] py-1.5 inline-flex items-center gap-1 focus:outline-none focus-visible:underline">
+              <span>&gt; GitHub Archives</span>
+              <span>↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://linkedin.com/in/mayankkumargupta1" target="_blank" rel="noopener noreferrer" class="hover:text-[#00ff66] py-1.5 inline-flex items-center gap-1 focus:outline-none focus-visible:underline">
+              <span>&gt; LinkedIn Network</span>
+              <span>↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Telemetry & Back to Top -->
+      <div class="flex flex-col items-start md:items-end justify-between space-y-4">
+        <div class="text-[11px] text-zinc-400 md:text-right">
+          <div>UPTIME: <span class="text-[#00ff66]">23Y_0M_26D</span></div>
+          <div>LIGHTHOUSE_SCORE: <span class="text-[#39ff14]">100 / 100</span></div>
+        </div>
+
+        <a 
+          href="#hero" 
+          class="brutal-btn px-4 py-2.5 bg-[#0a110d] text-[#00ff66] border border-[#00ff66] text-xs font-black uppercase tracking-wider hover:bg-[#00ff66] hover:text-[#050807]"
+          aria-label="RETURN TO TOP: Back to top of page"
+        >
+          [ ↑ RETURN TO TOP ]
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom Copyright & License -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-zinc-400 text-[11px]">
+      <div>
+        © {currentYear} MAYANK KUMAR GUPTA. ALL PROTOCOLS RESERVED.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>MODE: CYBER_BRUTALISM</span>
+        <span>•</span>
+        <span>LATENCY: OPTIMAL</span>
+      </div>
+    </div>
+
+  </div>
+</footer>

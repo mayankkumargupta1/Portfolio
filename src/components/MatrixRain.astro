@@ -1,0 +1,135 @@
+---
+// Matrix Rain Canvas Component
+---
+
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+  <canvas id="matrix-canvas" class="w-full h-full opacity-20 transition-opacity duration-500"></canvas>
+  <!-- Vignette gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#050807]/90 via-[#050807]/60 to-[#050807]/95"></div>
+</div>
+
+<script>
+  class MatrixRainEngine {
+    private canvas: HTMLCanvasElement;
+    private ctx: CanvasRenderingContext2D;
+    private drops: number[] = [];
+    private fontSize = 16;
+    private columns = 0;
+    private isRunning = true;
+    private lastFrameTime = 0;
+    private fpsInterval = 1000 / 28; // ~28 FPS gives that authentic retro terminal crawl
+    private chars = '0123456789ABCDEF01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンµλπ∑⚡∆§';
+
+    constructor() {
+      this.canvas = document.getElementById('matrix-canvas') as HTMLCanvasElement;
+      if (!this.canvas) return;
+      const context = this.canvas.getContext('2d');
+      if (!context) return;
+      this.ctx = context;
+
+      this.init();
+      this.bindEvents();
+      this.animate(0);
+    }
+
+    private init() {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      this.canvas.width = width;
+      this.canvas.height = height;
+
+      this.columns = Math.floor(width / this.fontSize);
+      this.drops = [];
+      for (let i = 0; i < this.columns; i++) {
+        // Stagger drops randomly
+        this.drops[i] = Math.floor(Math.random() * -50);
+      }
+    }
+
+    private bindEvents() {
+      window.addEventListener('resize', () => {
+        this.init();
+      });
+
+      // Pause when tab not visible
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          this.isRunning = false;
+        } else {
+          this.isRunning = true;
+          this.animate(performance.now());
+        }
+      });
+
+      // Reduced motion check
+      const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (motionQuery.matches) {
+        this.isRunning = false;
+      }
+      motionQuery.addEventListener('change', (e) => {
+        this.isRunning = !e.matches;
+        if (this.isRunning) this.animate(performance.now());
+      });
+
+      // Expose controls to global window
+      (window as any).matrixControls = {
+        toggle: () => {
+          this.isRunning = !this.isRunning;
+          if (this.isRunning) {
+            this.animate(performance.now());
+          }
+          return this.isRunning;
+        },
+        getState: () => this.isRunning,
+        setOpacity: (val: number) => {
+          this.canvas.style.opacity = val.toString();
+        }
+      };
+    }
+
+    private animate = (currentTime: number) => {
+      if (!this.isRunning) return;
+
+      requestAnimationFrame(this.animate);
+
+      const elapsed = currentTime - this.lastFrameTime;
+      if (elapsed < this.fpsInterval) return;
+
+      this.lastFrameTime = currentTime - (elapsed % this.fpsInterval);
+
+      // Translucent black rect to slowly fade old characters
+      this.ctx.fillStyle = 'rgba(5, 8, 7, 0.08)';
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+      this.ctx.font = `${this.fontSize}px monospace`;
+
+      for (let i = 0; i < this.drops.length; i++) {
+        const text = this.chars[Math.floor(Math.random() * this.chars.length)];
+        const x = i * this.fontSize;
+        const y = this.drops[i] * this.fontSize;
+
+        // Head glyph is glowing white/bright green
+        this.ctx.fillStyle = '#ffffff';
+        this.ctx.shadowBlur = 8;
+        this.ctx.shadowColor = '#00ff66';
+        this.ctx.fillText(text, x, y);
+
+        // Body glyph
+        this.ctx.fillStyle = '#00ff66';
+        this.ctx.shadowBlur = 0;
+
+        if (y > this.canvas.height && Math.random() > 0.975) {
+          this.drops[i] = 0;
+        }
+        this.drops[i]++;
+      }
+    };
+  }
+
+  // Initialize once DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new MatrixRainEngine());
+  } else {
+    new MatrixRainEngine();
+  }
+</script>

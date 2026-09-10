@@ -1,0 +1,225 @@
+---
+// Interactive Matrix Terminal CLI Component
+---
+
+<section id="terminal" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 border-b-2 border-[#1a3826] pb-4 gap-4">
+      <div>
+        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
+          // INTERACTIVE COMMAND LINE INTERFACE
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black uppercase text-white tracking-tight">
+          MATRIX <span class="text-[#00ff66] text-glow">TERMINAL</span>
+        </h2>
+      </div>
+
+      <div class="text-xs text-zinc-400 font-mono">
+        TRY TYPING: <span class="text-[#39ff14] font-bold">help</span> OR CLICK CHIPS BELOW
+      </div>
+    </div>
+
+    <!-- Quick Click Command Chips (Great for mobile & quick exploration) -->
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="text-xs font-mono text-zinc-400 self-center uppercase font-bold mr-2">QUICK EXECUTE:</span>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">help</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">cat bio</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">projects</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">skills</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#39ff14] border border-[#00ff66]">blog</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">matrix</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-[#00ff66] border border-[#1a3826] hover:border-[#00ff66]">contact</button>
+      <button type="button" class="cli-chip px-2.5 py-1 text-xs font-mono font-bold bg-[#0a110d] text-zinc-400 border border-[#1a3826] hover:border-zinc-300">clear</button>
+    </div>
+
+    <!-- Terminal Window -->
+    <div class="border-2 border-[#00ff66] bg-[#050807] brutal-shadow-lg overflow-hidden">
+      
+      <!-- Terminal Titlebar -->
+      <div class="bg-[#0a110d] border-b border-[#1a3826] px-4 py-2.5 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-3 bg-[#ff0055] inline-block"></span>
+          <span class="w-3 h-3 bg-[#ffaa00] inline-block"></span>
+          <span class="w-3 h-3 bg-[#00ff66] inline-block"></span>
+          <span class="ml-3 text-xs font-mono font-bold text-zinc-300 uppercase">
+            mayank@matrix-node: ~ (zsh)
+          </span>
+        </div>
+        <div class="text-[11px] font-mono text-zinc-400">
+          VT100 EMULATION // UTF-8
+        </div>
+      </div>
+
+      <!-- Terminal Output Canvas -->
+      <div 
+        id="terminal-body" 
+        class="p-4 sm:p-6 font-mono text-xs sm:text-sm text-[#00ff66] max-h-[380px] overflow-y-auto space-y-3 focus:outline-none"
+        tabindex="0"
+        aria-label="Interactive Terminal Log"
+      >
+        <div class="text-zinc-400">
+          <p class="text-[#39ff14] font-bold">MayankOS v3.14.0 LTS (x86_64-pc-linux-gnu)</p>
+          <p class="text-zinc-400">* Documentation: https://blogs.mayankkumargupta.com</p>
+          <p class="text-zinc-400">* System load: 0.12, 0.08, 0.05 | Memory: 32GB RAM | Mode: Cyber-Brutalism</p>
+          <p class="mt-2 text-zinc-300">Type <span class="text-[#00ff66] font-bold underline">help</span> to view available system commands or select from the quick chips above.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Input Line -->
+      <form id="terminal-form" class="bg-[#0a110d] border-t border-[#1a3826] px-4 py-3 flex items-center gap-2">
+        <label for="terminal-input" class="text-[#39ff14] font-bold text-xs sm:text-sm whitespace-nowrap select-none">
+          guest@mayank:~$
+        </label>
+        <input 
+          id="terminal-input" 
+          type="text" 
+          autocomplete="off" 
+          spellcheck="false" 
+          aria-label="Terminal command input"
+          placeholder="type a command..." 
+          class="flex-1 bg-transparent text-[#00ff66] font-mono text-xs sm:text-sm focus:outline-none placeholder-zinc-700"
+        />
+        <button 
+          type="submit" 
+          class="px-3 py-1 bg-[#00ff66] text-[#050807] font-black text-xs uppercase tracking-wider hover:bg-[#39ff14]"
+        >
+          RUN
+        </button>
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('terminal-form') as HTMLFormElement;
+  const input = document.getElementById('terminal-input') as HTMLInputElement;
+  const body = document.getElementById('terminal-body') as HTMLDivElement;
+  const chips = document.querySelectorAll('.cli-chip');
+
+  const COMMANDS: Record<string, string | (() => string)> = {
+    help: `
+AVAILABLE COMMANDS:
+  help        - List available terminal commands
+  bio         - Print system engineer background & specifications
+  skills      - Dump core tech stack and frameworks
+  projects    - Enumerate production deployments and exploit repositories
+  blog        - Connect to technical blog (blogs.mayankkumargupta.com)
+  contact     - Reveal transmission coordinates and direct email
+  matrix      - Toggle canvas Matrix digital rain animation
+  sfx         - Toggle tactical sound synthesizer
+  uptime      - Calculate active human uptime
+  whoami      - Print current user privileges
+  clear       - Purge terminal screen buffer
+    `,
+    bio: `
+MAYANK KUMAR GUPTA:
+  Role: AI/ML & Systems Engineer | Backend Architect
+  Education: Lovely Professional University (CSE)
+  Experience: Infotech LPU, GradGlobe Pvt. Ltd., Promist Solutions
+  Philosophy: Build resilient, low-latency, autonomous systems that withstand scale.
+    `,
+    skills: `
+TECH ARSENAL:
+  [AI / ML]      : LangGraph, LangChain, Graph RAG, Neo4j, Memgraph, PyTorch
+  [BACKEND]      : FastAPI, Python, Django, Rust, C, PostgreSQL, Redis, WebSockets
+  [SYSTEMS]      : Arch Linux, Docker, Bun, Git, CI/CD Actions, Nginx
+  [FRONTEND]     : Astro, React, Next.js, React Native, Tailwind CSS, TypeScript
+    `,
+    projects: `
+PRODUCTION DEPLOYMENTS:
+  1. LPU Live Portal      -> https://lpulive.lpu.in
+  2. GradGlobe.org        -> https://gradglobe.org
+  3. Agentic Graph RAG    -> Multi-Agent Graph Traversal with LangGraph
+  4. Instloo              -> Student Campus Ecosystem
+  5. Hamara Basket Bazaar -> Scalable Merchant Commerce
+  6. Terminal Telemetry   -> Daily SVG Automation Engine
+    `,
+    blog: () => {
+      window.open('https://blogs.mayankkumargupta.com', '_blank');
+      return `\x1b[32m[TRANSMITTING]\x1b[0m Launching neural broadcast feed -> https://blogs.mayankkumargupta.com in a new tab...`;
+    },
+    contact: `
+TRANSMISSION CHANNELS:
+  Email:    mayank0evil0side@gmail.com / mayankcryptobyte@gmail.com
+  GitHub:   https://github.com/mayankkumargupta1
+  LinkedIn: https://linkedin.com/in/mayankkumargupta1
+  Blog:     https://blogs.mayankkumargupta.com
+    `,
+    uptime: `UPTIME: 23+ years, 0 downtime recorded. System operational.`,
+    whoami: `guest@matrix-node (Read-Only Terminal Session)`,
+    sudo: `PERMISSION DENIED: Nice try, Neo. The matrix core remains safeguarded.`,
+    matrix: () => {
+      if ((window as any).matrixControls) {
+        const state = (window as any).matrixControls.toggle();
+        return `Matrix Digital Rain is now: ${state ? 'ONLINE' : 'PAUSED'}`;
+      }
+      return 'Matrix controller not detected.';
+    },
+    sfx: () => {
+      if ((window as any).cyberAudio) {
+        const state = (window as any).cyberAudio.toggleMute();
+        return `Sound synthesizer is now: ${state ? 'ONLINE' : 'MUTED'}`;
+      }
+      return 'Audio synthesizer not detected.';
+    }
+  };
+
+  function executeCommand(cmdText: string) {
+    const trimmed = cmdText.trim().toLowerCase();
+    if (!trimmed) return;
+
+    if ((window as any).cyberAudio) {
+      (window as any).cyberAudio.terminal();
+    }
+
+    // Append user input line
+    const userLine = document.createElement('div');
+    userLine.className = 'text-zinc-400';
+    userLine.innerHTML = `<span class="text-[#39ff14] font-bold">guest@mayank:~$</span> ${cmdText}`;
+    body.appendChild(userLine);
+
+    if (trimmed === 'clear') {
+      body.innerHTML = '';
+      return;
+    }
+
+    // Determine output
+    let outputText = '';
+    const cleanCmd = trimmed.replace(/^cat\s+/, '');
+
+    if (COMMANDS[cleanCmd]) {
+      const val = COMMANDS[cleanCmd];
+      outputText = typeof val === 'function' ? val() : val;
+    } else if (trimmed.startsWith('sudo')) {
+      outputText = 'PERMISSION DENIED: You do not possess root clearance.';
+    } else {
+      outputText = `Command not recognized: '${cmdText}'. Type 'help' to review valid operations.`;
+    }
+
+    const outputEl = document.createElement('pre');
+    outputEl.className = 'text-zinc-200 whitespace-pre-wrap leading-relaxed';
+    outputEl.textContent = outputText.trim();
+    body.appendChild(outputEl);
+
+    body.scrollTop = body.scrollHeight;
+  }
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (input) {
+      executeCommand(input.value);
+      input.value = '';
+    }
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const cmd = chip.textContent || '';
+      if (cmd) executeCommand(cmd);
+    });
+  });
+</script>
