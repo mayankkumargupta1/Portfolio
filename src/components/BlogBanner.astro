@@ -1,83 +1,44 @@
 ---
-// Cyber-Brutalist Blog Gateway Card
+// Clean Blog Link Section
 const blogUrl = "https://blogs.mayankkumargupta.com";
 ---
 
-<section id="blog" class="py-12 md:py-16 relative">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="blog" class="py-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Cyber Brutalist Gateway Box -->
-    <div class="border-3 border-[#00ff66] bg-[#0a110d] p-6 sm:p-10 brutal-shadow-lg relative overflow-hidden group">
-      
-      <!-- Ambient corner cyber tags -->
-      <div class="flex flex-wrap items-center justify-between gap-4 border-b-2 border-[#1a3826] pb-4 mb-6">
-        <div class="flex items-center gap-2">
-          <span class="inline-block w-3 h-3 bg-[#00ff66] animate-ping"></span>
-          <span class="text-xs font-black tracking-widest text-[#00ff66] uppercase">
-            [ OUTBOUND BROADCAST TRANSMISSION ]
-          </span>
-        </div>
-        <div class="text-[11px] font-mono text-zinc-400 bg-[#050807] px-3 py-1 border border-[#1a3826]">
-          DESTINATION: <span class="text-[#39ff14] font-bold">blogs.mayankkumargupta.com</span>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+    <div class="border border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-6 sm:p-8 rounded transition-colors box-glow">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
         
-        <div class="lg:col-span-8 space-y-4">
-          <div class="text-xs font-bold text-[#39ff14] tracking-wider uppercase">
-            // NEURAL ARCHIVES & TECHNICAL ESSAYS
+        <div class="space-y-2 max-w-2xl">
+          <div class="text-xs font-mono text-[#00ff66] font-semibold flex items-center gap-2">
+            <span>// TECHNICAL WRITING</span>
+            <span class="text-zinc-500">•</span>
+            <span class="text-zinc-400">blogs.mayankkumargupta.com</span>
           </div>
 
-          <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white tracking-tight leading-tight">
-            DEEP DIVES IN <span class="text-[#00ff66] text-glow">AI AGENTS, GRAPH RAG</span> & SYSTEMS
+          <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            Notes on Systems, AI Agents & Backend Architecture
           </h2>
 
-          <p class="text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed">
-            I document real-world engineering hurdles, graph retrieval augmented generation, 
-            autonomous LangGraph workflows, high-throughput FastAPI patterns, and Arch Linux system tweaks. 
-            Direct, unfiltered, production-tested insights.
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            I write deep technical write-ups covering LangGraph workflows, Graph RAG, 
+            FastAPI and Django performance optimizations, and Linux systems engineering.
           </p>
-
-          <!-- Core topics -->
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="px-2.5 py-1 text-xs font-bold bg-[#050807] text-[#00ff66] border border-[#00ff66]/40">
-              #GraphRAG
-            </span>
-            <span class="px-2.5 py-1 text-xs font-bold bg-[#050807] text-[#00ff66] border border-[#00ff66]/40">
-              #LangGraph
-            </span>
-            <span class="px-2.5 py-1 text-xs font-bold bg-[#050807] text-[#00ff66] border border-[#00ff66]/40">
-              #FastAPI-Architecture
-            </span>
-            <span class="px-2.5 py-1 text-xs font-bold bg-[#050807] text-[#00ff66] border border-[#00ff66]/40">
-              #Rust-Internals
-            </span>
-            <span class="px-2.5 py-1 text-xs font-bold bg-[#050807] text-[#00ff66] border border-[#00ff66]/40">
-              #Distributed-Systems
-            </span>
-          </div>
         </div>
 
-        <!-- Right Action Button & Terminal Link -->
-        <div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-center gap-4">
+        <div>
           <a 
             href={blogUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            class="brutal-btn w-full sm:w-auto text-center bg-[#00ff66] hover:bg-[#39ff14] text-[#050807] font-black px-8 py-5 border-2 border-[#00ff66] text-sm uppercase tracking-widest brutal-shadow-lg flex items-center justify-center gap-3 transition-transform"
+            class="matrix-btn inline-flex items-center gap-2 bg-[#00ff66] text-[#050807] font-bold text-xs px-5 py-3 rounded tracking-wider whitespace-nowrap"
           >
-            <span>TRANSMIT TO BLOG</span>
-            <span class="text-base font-bold">↗</span>
+            <span>Visit Blog</span>
+            <span class="text-sm">↗</span>
           </a>
-
-          <span class="text-[11px] text-zinc-400 font-mono">
-            &gt; HTTP/3 // SECURE ENDPOINT VERIFIED
-          </span>
         </div>
 
       </div>
-
     </div>
 
   </div>

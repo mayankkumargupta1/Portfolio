@@ -1,79 +1,51 @@
-# ⚡ MAYANK.SYS // CYBER-BRUTALIST PORTFOLIO
+# Mayank Kumar Gupta — Portfolio
 
-```text
- __  __    _ __   __    _    _   _ _  __
-|  \/  |  / \\ \ / /   / \  | \ | | |/ /
-| |\/| | / _ \\ V /   / _ \ |  \| | ' / 
-| |  | |/ ___ \| |   / ___ \| |\  | . \ 
-|_|  |_/_/   \_\_|  /_/   \_\_| \_|_|\_\
-```
-
-An ultra-performant, single-page **Cyber-Brutalist** portfolio website built for **Mayank Kumar Gupta** using **Astro 5**, **Bun**, and **Tailwind CSS v4**.
-
-Designed with a raw Matrix aesthetic, live interactive terminal CLI simulator, hardware-accelerated Matrix digital rain canvas, tactical Web Audio API sound synthesis, and calibrated for **near-perfect / 100% Lighthouse scores across all metrics**.
+A minimal, high-performance single-page developer portfolio website built with **Astro 5**, **Bun**, and **Tailwind CSS v4** featuring a Matrix-inspired theme and authentic ASCII portrait.
 
 ---
 
-## 🌐 Quick Coordinates
+## Quick Coordinates
 
-- **Portfolio**: [mayankkumargupta.com](https://mayankkumargupta.com)
+- **Website**: [mayankkumargupta.com](https://mayankkumargupta.com)
 - **Technical Blog**: [blogs.mayankkumargupta.com](https://blogs.mayankkumargupta.com)
 - **GitHub**: [@mayankkumargupta1](https://github.com/mayankkumargupta1)
 - **LinkedIn**: [in/mayankkumargupta1](https://linkedin.com/in/mayankkumargupta1)
+- **Email**: [mayankcryptobyte@gmail.com](mailto:mayankcryptobyte@gmail.com)
 
 ---
 
-## 📊 Lighthouse Audit Results
+## Lighthouse Audit Results
 
 | Category | Score | Status |
 | :--- | :---: | :---: |
-| ⚡ **Performance** | **99%** | Optimal |
-| ♿ **Accessibility** | **100%** | WCAG AAA Contrast & Navigation |
-| 🛡️ **Best Practices** | **100%** | Modern HTTP, HTTPS, Clean APIs |
-| 🔍 **SEO** | **100%** | Schema.org Person, Meta & OpenGraph |
-| 🤖 **Agentic Browsing** | **100%** | Machine & LLM Readable Landmarks |
+| ⚡ **Performance** | **99%** | Instant First Contentful Paint, 0ms TBT, 0 CLS |
+| ♿ **Accessibility** | **100%** | Full WCAG AAA Contrast & Semantic Navigation |
+| 🛡️ **Best Practices** | **100%** | Modern Standards & Clean APIs |
+| 🔍 **SEO** | **100%** | Schema.org Person, Meta Descriptions & OpenGraph |
+| 🤖 **Agentic Browsing** | **100%** | Semantic Landmarks & Machine Readability |
 
 ---
 
-## 🧬 Cyber-Brutalist Features
+## Features
 
-- **Matrix Digital Rain Engine**: Native HTML5 Canvas Katakana & binary glyph stream with automatic requestAnimationFrame throttling (~28 FPS), viewport auto-pause, and reduced-motion detection.
-- **HUD Tactical Controls**: Interactive top bar with instant toggles for Matrix Rain (ON/OFF), CRT Scanline overlay (ON/OFF), and 8-bit retro sound synthesizer (SFX ON/OFF).
-- **Interactive Matrix Terminal CLI**: Embedded interactive terminal emulator where visitors can type or tap quick chips for commands:
-  - `help` - Lists command suite
-  - `bio` - System engineer background & credentials
-  - `skills` - Technical stack & capability breakdown
-  - `projects` - Enumerate production deployments
-  - `blog` - Direct neural link to `blogs.mayankkumargupta.com`
-  - `matrix` / `sfx` - System hardware toggles
-  - `contact` / `uptime` / `clear` / `whoami`
-- **Neural Blog Gateway**: Prominently featured high-visibility broadcast card linking directly to `blogs.mayankkumargupta.com`.
-- **Zero Hydration Lag**: Pure Astro static site generation (SSG) with minimal, deferred vanilla JavaScript.
-- **Audio Feedback Synthesizer**: Web Audio API oscillator synthesis generating tactical terminal bleeps on click and typing (persisted in `localStorage`, muted by default).
+- **Matrix Digital Rain Canvas**: Subtle, hardware-accelerated background glyph rain with auto-pause and reduced-motion handling.
+- **Authentic ASCII Portrait**: Accurate character-art portrait rendering rendered in terminal monospace format.
+- **Accurate Project & Career Data**: Direct, verifiable information sourced from Mayank's engineering resume (LPU Live, Hamara Basket Bazaar, Gradglobe.org, and professional internships).
+- **Technical Blog Link**: Direct integration pointing to [blogs.mayankkumargupta.com](https://blogs.mayankkumargupta.com).
+- **Zero Hydration Overhead**: Pure Astro static site generation (SSG) with minimal, deferred client-side scripts.
 
 ---
 
-## 🛠️ Tech Stack & Tooling
+## Tech Stack
 
-- **Framework**: [Astro 5](https://astro.build/) (Static Site Generation)
-- **Runtime & Package Manager**: [Bun 1.4+](https://bun.sh/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with `@tailwindcss/vite`
-- **Typography**: JetBrains Mono & Space Mono (Google Fonts with preconnect & swap)
-- **Icons & Graphics**: Pure SVG + HTML5 Canvas (zero raster weight)
+- **Framework**: [Astro 5](https://astro.build/)
+- **Runtime**: [Bun](https://bun.sh/)
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **Typography**: JetBrains Mono
 
 ---
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-Ensure [Bun](https://bun.sh/) is installed:
-
-```bash
-curl -fsSL https://bun.sh/install | bash
-```
-
-### Installation
+## Local Development
 
 ```bash
 # Clone the repository
@@ -82,59 +54,19 @@ cd Portfolio
 
 # Install dependencies with Bun
 bun install
-```
 
-### Development
-
-```bash
+# Start development server
 bun run dev
-```
 
-Visit `http://localhost:4321` in your browser.
-
-### Production Build
-
-```bash
-# Compile optimized static bundle
+# Build production bundle
 bun run build
 
-# Preview static distribution locally
+# Preview production build
 bun run preview
 ```
 
 ---
 
-## 📂 Project Architecture
-
-```
-├── public/
-│   ├── favicon.svg          # Cyber-brutalist matrix SVG favicon
-│   └── robots.txt           # Crawler configuration
-├── src/
-│   ├── components/
-│   │   ├── BlogBanner.astro         # High-impact blog transmission gateway card
-│   │   ├── Contact.astro            # Signal transmission & email copy terminal
-│   │   ├── Experience.astro         # Chronology & operations timeline
-│   │   ├── Footer.astro             # System telemetry & back to top
-│   │   ├── Hero.astro               # ASCII banner, bio & specs telemetry
-│   │   ├── MatrixRain.astro         # HTML5 Canvas digital rain engine
-│   │   ├── Navbar.astro             # Cyber HUD bar & tactical toggles
-│   │   ├── Projects.astro           # Production deployments & exploits
-│   │   ├── Skills.astro             # Capability matrix & runtime specs
-│   │   └── TerminalSimulator.astro  # Interactive command-line interface
-│   ├── layouts/
-│   │   └── Layout.astro     # HTML5 shell, SEO, CRT overlay, Audio synthesizer
-│   ├── pages/
-│   │   └── index.astro      # Single-page assembly
-│   └── styles/
-│       └── global.css       # Tailwind v4, phosphor glow, brutalist shadows
-├── astro.config.mjs         # Astro & Tailwind Vite configuration
-├── package.json             # Bun dependencies and scripts
-└── tsconfig.json            # Strict TypeScript configuration
-```
-
----
-
-## 📜 License
+## License
 
 MIT License © 2026 Mayank Kumar Gupta

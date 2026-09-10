@@ -1,175 +1,105 @@
 ---
-// Cyber-Brutalist Contact / Signal Transmission
-const email = "mayank0evil0side@gmail.com";
-const altEmail = "mayankcryptobyte@gmail.com";
+// Clean, minimal Contact section
+const email = "mayankcryptobyte@gmail.com";
+const phone = "+91 9875609901";
 const blogUrl = "https://blogs.mayankkumargupta.com";
 ---
 
-<section id="contact" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="contact" class="py-12 border-t border-[#1a3826]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-2 border-[#1a3826] pb-6 gap-4">
-      <div>
-        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
-          // INITIATE TRANSMISSION
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-          ESTABLISH <span class="text-[#00ff66] text-glow">CONTACT</span>
-        </h2>
+    <div class="mb-8">
+      <div class="text-xs font-mono text-[#00ff66] uppercase font-semibold mb-1">
+        // Transmission
       </div>
-
-      <div class="text-xs text-zinc-400 font-mono">
-        LATENCY: <span class="text-[#39ff14] font-bold">&lt; 15ms</span> // PGP READY
-      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Contact & Connect
+      </h2>
     </div>
 
-    <!-- Contact Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
       
-      <!-- Primary Communication Box -->
-      <div class="lg:col-span-7 border-2 border-[#00ff66] bg-[#0a110d] p-6 sm:p-8 brutal-shadow-lg space-y-6">
+      <!-- Left: Direct Reach -->
+      <div class="md:col-span-6 border border-[#1a3826] bg-[#0a110d] p-6 rounded space-y-4">
+        <h3 class="text-xs font-mono font-bold text-[#00ff66] uppercase tracking-wider">
+          Direct Channels
+        </h3>
         
-        <div class="flex items-center justify-between border-b border-[#1a3826] pb-4">
-          <div class="text-xs font-mono font-bold text-[#00ff66] uppercase">
-            [ DIRECT SECURE CHANNEL ]
-          </div>
-          <span class="inline-block w-2.5 h-2.5 bg-[#00ff66] animate-ping"></span>
-        </div>
-
-        <div>
-          <p class="text-sm text-zinc-300 leading-relaxed">
-            Interested in building cutting-edge AI agent systems, graph retrieval pipelines, 
-            or architecting scalable backend systems? Send a direct dispatch to my inbox.
-          </p>
-        </div>
-
-        <!-- Copy Email Card -->
-        <div class="bg-[#050807] border-2 border-[#1a3826] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="space-y-3 text-xs font-mono">
           <div>
-            <span class="text-[10px] text-zinc-400 uppercase tracking-widest font-bold block mb-1">
-              PRIMARY COMM ID:
-            </span>
-            <span id="target-email" class="text-xs sm:text-sm font-mono font-bold text-[#39ff14] break-all">
+            <span class="text-zinc-400 block text-[11px]">EMAIL:</span>
+            <a href={`mailto:${email}`} class="text-white hover:text-[#00ff66] font-semibold transition-colors">
               {email}
-            </span>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button 
-              id="copy-email-btn" 
-              type="button" 
-              class="brutal-btn px-4 py-2 bg-[#00ff66] text-[#050807] font-black text-xs uppercase tracking-wider whitespace-nowrap"
-            >
-              COPY ID
-            </button>
-            <a 
-              href={`mailto:${email}`} 
-              class="brutal-btn px-4 py-2 bg-[#0a110d] text-[#00ff66] border border-[#00ff66] font-bold text-xs uppercase tracking-wider whitespace-nowrap"
-            >
-              MAIL ↗
             </a>
           </div>
+
+          <div>
+            <span class="text-zinc-400 block text-[11px]">PHONE:</span>
+            <span class="text-zinc-300">{phone}</span>
+          </div>
+
+          <div>
+            <span class="text-zinc-400 block text-[11px]">LOCATION:</span>
+            <span class="text-zinc-300">Kolkata, West Bengal, India</span>
+          </div>
         </div>
 
-        <!-- Alternate Email -->
-        <div class="text-xs font-mono text-zinc-400 flex items-center gap-2 pt-2 border-t border-[#12241b]">
-          <span class="text-zinc-400">// SECONDARY:</span>
-          <a href={`mailto:${altEmail}`} class="text-[#00ff66] hover:underline">{altEmail}</a>
+        <div class="pt-2">
+          <a 
+            href={`mailto:${email}`} 
+            class="matrix-btn inline-block bg-[#00ff66] text-[#050807] font-bold text-xs px-4 py-2 rounded"
+          >
+            Send Email ↗
+          </a>
         </div>
-
-        <!-- PGP Fingerprint Box -->
-        <div class="bg-[#050807] border border-[#1a3826] p-3 text-[11px] font-mono text-zinc-400">
-          <div class="text-zinc-300 font-bold mb-1">// PGP FINGERPRINT:</div>
-          <p class="text-[#00ff66]/80 break-all select-all">
-            4A8F 90B2 13D4 C5E6 7789 2A1B 3C4D 5E6F 7A8B 9C0D
-          </p>
-        </div>
-
       </div>
 
-      <!-- Social & Network Coordinates -->
-      <div class="lg:col-span-5 space-y-4">
-        
-        <!-- Blog Transmit Card -->
-        <a 
-          href={blogUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="border-2 border-[#00ff66] bg-[#0a110d] p-5 brutal-btn block group"
-        >
-          <div class="flex items-center justify-between text-xs font-bold text-[#00ff66] mb-1">
-            <span>[ EXTERNAL NODE ]</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <h3 class="text-lg font-black text-white group-hover:text-[#00ff66] transition-colors">
-            TECHNICAL BLOG
-          </h3>
-          <p class="text-xs text-zinc-400 mt-1 font-mono">
-            blogs.mayankkumargupta.com
-          </p>
-        </a>
+      <!-- Right: Profiles & Links -->
+      <div class="md:col-span-6 border border-[#1a3826] bg-[#0a110d] p-6 rounded space-y-4">
+        <h3 class="text-xs font-mono font-bold text-[#00ff66] uppercase tracking-wider">
+          Profiles & Writing
+        </h3>
 
-        <!-- GitHub -->
-        <a 
-          href="https://github.com/mayankkumargupta1" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-5 brutal-btn block group"
-        >
-          <div class="flex items-center justify-between text-xs font-bold text-zinc-400 mb-1">
-            <span>[ SOURCE VAULT ]</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <h3 class="text-lg font-black text-white group-hover:text-[#00ff66] transition-colors">
-            GITHUB PROFILE
-          </h3>
-          <p class="text-xs text-zinc-400 mt-1 font-mono">
-            github.com/mayankkumargupta1
-          </p>
-        </a>
+        <ul class="space-y-2.5 text-xs font-mono">
+          <li>
+            <a 
+              href={blogUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="flex items-center justify-between text-zinc-300 hover:text-[#00ff66] py-1 transition-colors border-b border-[#14261b]"
+            >
+              <span>Technical Blog</span>
+              <span class="text-[#00ff66]">blogs.mayankkumargupta.com ↗</span>
+            </a>
+          </li>
 
-        <!-- LinkedIn -->
-        <a 
-          href="https://linkedin.com/in/mayankkumargupta1" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-5 brutal-btn block group"
-        >
-          <div class="flex items-center justify-between text-xs font-bold text-zinc-400 mb-1">
-            <span>[ CAREER MATRIX ]</span>
-            <span class="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">↗</span>
-          </div>
-          <h3 class="text-lg font-black text-white group-hover:text-[#00ff66] transition-colors">
-            LINKEDIN NETWORK
-          </h3>
-          <p class="text-xs text-zinc-400 mt-1 font-mono">
-            linkedin.com/in/mayankkumargupta1
-          </p>
-        </a>
+          <li>
+            <a 
+              href="https://github.com/mayankkumargupta1" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="flex items-center justify-between text-zinc-300 hover:text-[#00ff66] py-1 transition-colors border-b border-[#14261b]"
+            >
+              <span>GitHub</span>
+              <span class="text-zinc-400">@mayankkumargupta1 ↗</span>
+            </a>
+          </li>
 
+          <li>
+            <a 
+              href="https://linkedin.com/in/mayankkumargupta1" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="flex items-center justify-between text-zinc-300 hover:text-[#00ff66] py-1 transition-colors border-b border-[#14261b]"
+            >
+              <span>LinkedIn</span>
+              <span class="text-zinc-400">in/mayankkumargupta1 ↗</span>
+            </a>
+          </li>
+        </ul>
       </div>
 
     </div>
 
   </div>
 </section>
-
-<script>
-  const copyBtn = document.getElementById('copy-email-btn');
-  const targetEmail = document.getElementById('target-email')?.textContent?.trim();
-
-  copyBtn?.addEventListener('click', () => {
-    if (targetEmail) {
-      navigator.clipboard.writeText(targetEmail).then(() => {
-        const original = copyBtn.textContent;
-        copyBtn.textContent = 'COPIED!';
-        copyBtn.classList.add('bg-[#39ff14]');
-        setTimeout(() => {
-          copyBtn.textContent = original;
-          copyBtn.classList.remove('bg-[#39ff14]');
-        }, 2000);
-      });
-    }
-  });
-</script>

@@ -1,143 +1,125 @@
 ---
-// Cyber-Brutalist Technical Arsenal / Skills Matrix
+// Accurate Skills & Education section matching resume
 
-const skillCategories = [
+const skillGroups = [
   {
-    code: "MOD_01",
-    title: "AI & INTELLIGENT AGENTS",
-    badge: "CORE_FOCUS",
-    skills: [
-      { name: "LangGraph", level: "95%" },
-      { name: "LangChain", level: "92%" },
-      { name: "Graph RAG", level: "90%" },
-      { name: "Neo4j / Memgraph", level: "88%" },
-      { name: "Multi-Agent Workflows", level: "94%" },
-      { name: "Prompt & Context Tuning", level: "92%" }
-    ]
+    category: "Languages & Runtimes",
+    items: ["Python (3.6, 3.10, 3.14 / PEP 8)", "TypeScript / JavaScript", "Rust", "C", "Cython", "PyPy"]
   },
   {
-    code: "MOD_02",
-    title: "BACKEND & HIGH-THROUGHPUT",
-    badge: "PRODUCTION",
-    skills: [
-      { name: "FastAPI", level: "96%" },
-      { name: "Python (3.8-3.14)", level: "98%" },
-      { name: "Django", level: "88%" },
-      { name: "Rust", level: "82%" },
-      { name: "PostgreSQL & Redis", level: "90%" },
-      { name: "WebSockets & Event Streams", level: "92%" }
-    ]
+    category: "AI & LangChain Ecosystem",
+    items: ["LangGraph", "LangChain", "Deep Research Agents", "Agentic Workflows"]
   },
   {
-    code: "MOD_03",
-    title: "SYSTEMS, LINUX & DEVOPS",
-    badge: "LOW_LEVEL",
-    skills: [
-      { name: "Arch Linux Kernel/Tweaks", level: "94%" },
-      { name: "Docker & Containerization", level: "90%" },
-      { name: "GitHub Actions CI/CD", level: "92%" },
-      { name: "C & Systems Programming", level: "80%" },
-      { name: "Bun & Node Runtime", level: "92%" },
-      { name: "Bash & Automation", level: "95%" }
-    ]
+    category: "Backend & APIs",
+    items: ["Django", "FastAPI", "REST APIs", "GraphQL (strawberry.rocks)", "WebSockets"]
   },
   {
-    code: "MOD_04",
-    title: "FRONTEND & APPS",
-    badge: "INTERFACE",
-    skills: [
-      { name: "Astro (SSG / SSR)", level: "95%" },
-      { name: "TypeScript / JavaScript", level: "94%" },
-      { name: "Tailwind CSS", level: "96%" },
-      { name: "React & Next.js", level: "90%" },
-      { name: "React Native", level: "85%" },
-      { name: "Web Standards & SEO", level: "98%" }
-    ]
+    category: "Databases & Graph",
+    items: ["Neo4j & Memgraph (OpenCypher)", "PostgreSQL", "Redis"]
+  },
+  {
+    category: "Frontend",
+    items: ["React", "Next.js", "Tailwind CSS", "Astro"]
+  },
+  {
+    category: "Systems & Infrastructure",
+    items: ["Arch Linux", "Docker Deployments", "Git", "Bun"]
   }
 ];
 ---
 
-<section id="skills" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="skills" class="py-12 border-t border-[#1a3826]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-2 border-[#1a3826] pb-6 gap-4">
-      <div>
-        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
-          // CAPABILITY MATRIX
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Skills Matrix -->
+      <div class="lg:col-span-8 space-y-6">
+        <div>
+          <div class="text-xs font-mono text-[#00ff66] uppercase font-semibold mb-1">
+            // Technical Stack
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Skills & Tools
+          </h2>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-          TECHNICAL <span class="text-[#00ff66] text-glow">STACK</span>
-        </h2>
-      </div>
 
-      <div class="text-xs text-zinc-400 font-mono">
-        ARCHITECTURE_STATUS: <span class="text-[#39ff14] font-bold">OPTIMAL</span>
-      </div>
-    </div>
-
-    <!-- Skills Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {skillCategories.map((cat) => (
-        <div class="border-2 border-[#1a3826] bg-[#0a110d] p-6 brutal-btn">
-          
-          <div class="flex items-center justify-between border-b border-[#12241b] pb-3 mb-6">
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono text-[#00ff66] font-bold">[{cat.code}]</span>
-              <h3 class="text-sm sm:text-base font-black uppercase text-white tracking-wider">
-                {cat.title}
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {skillGroups.map((group) => (
+            <div class="border border-[#1a3826] bg-[#0a110d] p-4 rounded">
+              <h3 class="text-xs font-mono font-bold text-[#00ff66] uppercase tracking-wider mb-2.5">
+                {group.category}
               </h3>
+              <ul class="space-y-1 text-xs text-zinc-300">
+                {group.items.map((item) => (
+                  <li class="flex items-center gap-1.5">
+                    <span class="text-[#00ff66] text-[10px] select-none">&gt;</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <span class="text-[10px] font-black px-2 py-0.5 bg-[#00ff66]/10 text-[#00ff66] border border-[#00ff66]/30 uppercase">
-              {cat.badge}
-            </span>
-          </div>
-
-          <div class="space-y-4">
-            {cat.skills.map((skill) => (
-              <div>
-                <div class="flex justify-between text-xs font-mono mb-1">
-                  <span class="text-zinc-200 font-bold">{skill.name}</span>
-                  <span class="text-[#00ff66]">{skill.level}</span>
-                </div>
-                <!-- Brutalist meter bar -->
-                <div class="h-2 w-full bg-[#050807] border border-[#1a3826]">
-                  <div 
-                    class="h-full bg-[#00ff66]" 
-                    style={`width: ${skill.level}`}
-                  ></div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      ))}
-    </div>
-
-    <!-- Live System Specs Matrix -->
-    <div class="mt-8 border-2 border-[#00ff66] bg-[#050807] p-4 sm:p-6 brutal-shadow">
-      <div class="text-xs font-bold text-[#00ff66] uppercase tracking-wider mb-3">
-        // ENVIRONMENT & RUNTIME TELEMETRY
-      </div>
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-mono">
-        <div>
-          <span class="text-zinc-400 block">PRIMARY SHELL:</span>
-          <span class="text-white font-bold">ZSH / Bash / Tmux</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">PRIMARY EDITORS:</span>
-          <span class="text-white font-bold">Neovim // VSCode</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">CONTAINERIZATION:</span>
-          <span class="text-white font-bold">Docker Engine // Podman</span>
-        </div>
-        <div>
-          <span class="text-zinc-400 block">PACKAGE RUNTIME:</span>
-          <span class="text-[#39ff14] font-bold">Bun 1.4.0 // Node 26</span>
+          ))}
         </div>
       </div>
+
+      <!-- Education & Certifications -->
+      <div class="lg:col-span-4 space-y-6">
+        <div>
+          <div class="text-xs font-mono text-[#00ff66] uppercase font-semibold mb-1">
+            // Credentials
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+            Education
+          </h2>
+        </div>
+
+        <div class="space-y-4">
+          <!-- LPU Degree -->
+          <div class="border border-[#1a3826] bg-[#0a110d] p-4 rounded space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-[#00ff66] font-bold">B.Tech in Computer Science</span>
+              <span class="text-white font-bold bg-[#14261b] px-2 py-0.5 rounded">CGPA 8.37</span>
+            </div>
+            <p class="text-xs font-semibold text-white">Lovely Professional University</p>
+            <p class="text-[11px] font-mono text-zinc-400">Aug 2023 — Present • Jalandhar, Punjab</p>
+          </div>
+
+          <!-- Schooling -->
+          <div class="border border-[#1a3826] bg-[#0a110d] p-4 rounded space-y-1.5">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-zinc-300">Intermediate (PCM)</span>
+              <span class="text-zinc-400">74%</span>
+            </div>
+            <p class="text-xs text-zinc-300">Infocus India Public School</p>
+            <p class="text-[11px] font-mono text-zinc-400">2021 — 2023</p>
+          </div>
+
+          <!-- Certifications list -->
+          <div class="border border-[#1a3826] bg-[#0a110d] p-4 rounded">
+            <h3 class="text-xs font-mono font-bold text-[#00ff66] uppercase tracking-wider mb-2">
+              Certifications
+            </h3>
+            <ul class="space-y-2 text-xs text-zinc-300">
+              <li>
+                <div class="font-semibold text-white">Django Web Framework</div>
+                <div class="text-[10px] text-zinc-400">Meta, Coursera</div>
+              </li>
+              <li>
+                <div class="font-semibold text-white">Data Analysis with Python</div>
+                <div class="text-[10px] text-zinc-400">IBM, Coursera</div>
+              </li>
+              <li>
+                <div class="font-semibold text-white">Python (Basic)</div>
+                <div class="text-[10px] text-zinc-400">HackerRank</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>

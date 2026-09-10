@@ -1,111 +1,101 @@
 ---
-// Cyber-Brutalist Experience / Operations Log
+// Accurate experience timeline from Resume
 
-const experiences = [
+interface ExperienceItem {
+  company: string;
+  role: string;
+  location: string;
+  period: string;
+  url: string;
+  description: string;
+}
+
+const experiences: ExperienceItem[] = [
   {
-    org: "Infotech LPU",
-    role: "Software Engineer // Systems Architect",
-    period: "2024 — PRESENT",
-    location: "Punjab, India",
-    status: "CURRENT_MISSION",
-    highlights: [
-      "Engineered high-throughput backend services and real-time WebSocket feeds powering LPU Live for tens of thousands of active campus users.",
-      "Architected fault-tolerant microservices and caching pipelines using FastAPI, PostgreSQL, and Redis.",
-      "Optimized query performance and reduced database round-trip latencies by over 40%."
-    ]
+    company: "Lovely Professional University (LPU)",
+    role: "Backend/AI Intern at Infotech",
+    location: "Jalandhar, Punjab",
+    period: "Aug 2025 — Jul 2026",
+    url: "https://www.lpu.in/",
+    description: "Worked on building an Agentic AI assistant for students, integrating university policies with real-time student services. Developed a system capable of answering policy-bound queries and securely performing student actions."
   },
   {
-    org: "GradGlobe Pvt. Ltd.",
-    role: "Backend & AI Developer",
-    period: "2023 — 2024",
-    location: "Remote / Hybrid",
-    status: "COMPLETED",
-    highlights: [
-      "Designed and deployed smart university recommendation pipelines and applicant workflow systems on GradGlobe.org.",
-      "Integrated automated document parsing and structured LLM evaluation pipelines for international admissions.",
-      "Built resilient RESTful API layers with comprehensive automated test suites and zero-downtime CI/CD."
-    ]
+    company: "GradGlobe Pvt. Ltd.",
+    role: "Backend/AI Developer (Freelance)",
+    location: "Jalandhar, Punjab",
+    period: "Jun 2025 — Present",
+    url: "https://www.gradglobe.org/",
+    description: "Built an AI-driven university enrichment platform with an integrated CRM and test dashboard. The agent auto-researches draft entries, scrapes the web for rankings, costs, visas, and location data, and generates structured updates for the Django Backend."
   },
   {
-    org: "Promist Solutions",
-    role: "Software & Systems Engineer",
-    period: "2022 — 2023",
-    location: "India",
-    status: "COMPLETED",
-    highlights: [
-      "Delivered scalable web and cloud solutions for diverse client operations.",
-      "Modernized legacy monolithic endpoints into decoupled, event-driven services.",
-      "Spearheaded automated testing frameworks and Dockerized staging environments."
-    ]
+    company: "Sanch Foundation (NGO)",
+    role: "Web Developer (Intern)",
+    location: "Remote",
+    period: "Jul 2024 — Aug 2024",
+    url: "https://sanchfoundation.org/",
+    description: "Created a Certificate Management System for the foundation (certificates.sanchfoundation.org) with image gallery generation."
   },
   {
-    org: "Lovely Professional University (LPU)",
-    role: "B.Tech in Computer Science & Engineering",
-    period: "ALUMNUS",
-    location: "Punjab, India",
-    status: "CREDENTIAL",
-    highlights: [
-      "Specialized in Artificial Intelligence, Machine Learning, and Distributed Computing Systems.",
-      "Active participant in high-stakes hackathons, competitive programming, and open-source systems architecture."
-    ]
+    company: "Promist Solutions",
+    role: "Web Developer (Intern)",
+    location: "Remote",
+    period: "Jul 2024 — Aug 2024",
+    url: "https://promistsolutions.com/",
+    description: "Worked on the Emerging India platform (full Django-based project). Built core features, integrated online payments, and developed a custom CRM to manage leads and operations, improving workflows and overall system performance."
+  },
+  {
+    company: "Instloo Pvt. Ltd.",
+    role: "Web Developer (Intern)",
+    location: "Remote",
+    period: "Dec 2023 — Mar 2024",
+    url: "https://instloo.com/",
+    description: "Built and deployed full-stack Django apps, including an AI background remover and a gold-price tracker across Python, JavaScript, and web tooling."
   }
 ];
 ---
 
-<section id="experience" class="py-16 md:py-24 border-t-2 border-[#1a3826]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="experience" class="py-12 border-t border-[#1a3826]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b-2 border-[#1a3826] pb-6 gap-4">
-      <div>
-        <div class="text-xs font-bold text-[#00ff66] uppercase tracking-widest mb-2">
-          // CHRONOLOGY & DEPLOYMENTS
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
-          OPERATIONS <span class="text-[#00ff66] text-glow">TIMELINE</span>
-        </h2>
+    <div class="mb-8">
+      <div class="text-xs font-mono text-[#00ff66] uppercase font-semibold mb-1">
+        // Career Path
       </div>
-
-      <div class="text-xs text-zinc-400 font-mono">
-        CLEARANCE: <span class="text-[#39ff14] font-bold">LEVEL_5</span> // VERIFIED
-      </div>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+        Work Experience
+      </h2>
     </div>
 
-    <!-- Timeline list -->
-    <div class="space-y-6">
-      {experiences.map((exp, idx) => (
-        <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-6 brutal-btn">
+    <div class="space-y-4">
+      {experiences.map((item) => (
+        <div class="border border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-5 sm:p-6 rounded transition-colors">
           
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#12241b] pb-3 mb-4 gap-2">
+          <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 border-b border-[#14261b] pb-3 mb-3">
             <div>
-              <span class="text-[10px] font-mono text-zinc-400 mr-2">[LOG_0{idx + 1}]</span>
-              <h3 class="inline text-lg sm:text-xl font-black text-white uppercase">
-                {exp.org}
-              </h3>
-              <span class="text-zinc-400 mx-2">//</span>
-              <span class="text-xs sm:text-sm font-bold text-[#00ff66]">{exp.role}</span>
+              <a 
+                href={item.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                class="text-base sm:text-lg font-bold text-white hover:text-[#00ff66] transition-colors inline-flex items-center gap-1.5"
+              >
+                <span>{item.company}</span>
+                <span class="text-xs text-[#00ff66]">↗</span>
+              </a>
+              <div class="text-xs sm:text-sm font-semibold text-[#00ff66] mt-0.5">
+                {item.role}
+              </div>
             </div>
 
-            <div class="flex items-center gap-2">
-              <span class="text-xs font-mono font-bold text-zinc-400 bg-[#050807] px-2.5 py-1 border border-[#1a3826]">
-                {exp.period}
-              </span>
-              <span class={`text-[10px] font-black px-2 py-1 uppercase tracking-wider ${
-                exp.status === 'CURRENT_MISSION' ? 'bg-[#00ff66] text-[#050807]' : 'bg-[#1a3826] text-zinc-400'
-              }`}>
-                {exp.status}
-              </span>
+            <div class="text-xs font-mono text-zinc-400">
+              <span>{item.period}</span>
+              <span class="mx-1.5">•</span>
+              <span>{item.location}</span>
             </div>
           </div>
 
-          <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 font-mono">
-            {exp.highlights.map((item) => (
-              <li class="flex items-start gap-2">
-                <span class="text-[#00ff66] font-bold select-none">&gt;</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
+          <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+            {item.description}
+          </p>
 
         </div>
       ))}

@@ -1,204 +1,143 @@
 ---
-// Cyber-Brutalist Matrix Hero Section
+// Minimalist, high-status Hero section with authentic ASCII portrait
+const blogUrl = "https://blogs.mayankkumargupta.com";
+
+// Verbatim ASCII portrait extracted from user's profile README
+const asciiPortrait = `------------------:.                :---------------------
+                    +@@@@@++++=+*+#-                      
+                :@@@#***: -*#=. :::*%%-                   
+             @@@+*@*   .--+=++=:-..  .=+==-.              
+           @.  ##* -=@*-::  .-+-:::+.    - :*             
+          +@*#%#**..            .:::::  :==*==-           
+         @= *%:-  .=:.              .-@#+*=+ :-.       .  
+        @@#@=*=##-                     : =..=.-*.         
+    .   @+.***    -*%@@%#@@@@@%%*+-       .  .:           
+        % :   #@@@@@@###***%%#%%@%%@@*:-      -.          
+        #@-  @@@@@@@@@@@###*####*#@@@@@@%  . .-           
+    .   .@%  @@@@@@@@%%##******+*#%*#@@@@    .-           
+         @=@@@@@@@@@@@#**%*#*#******#@@@@*   .            
+         *@@@@@@@@@@@@@@@##*#%@@@@@@@@@@@@@+ -   .        
+          +@@@@@*     -@@@@@@@@%*-    @@@@@@.*            
+          =@@     :*+    ::-:     :--    +@@        .     
+           @@@@@@@- :=@@*@%=%@@@%**=+@@@@@@@              
+        # + @@*:+@  -  @*@@*%@=  @  *@  #@  .             
+      %@%@@@@@#@@@@*=:#@ #= ..%- :+*#@@+#@@ :@@@#         
+       @ @*@@@@@@@@@@@@@.@@*-:@@@*+#@@@@@@@@@@# *         
+        @@ @@@@@@@@@@@@@@@@=@=@@#@@@#@@@@@@# -@-          
+        @@ @@@@@@@@@@@@%%@@-@@@@@@#@@@@@@@@#@ @:    .     
+         @@%@@@@@@@@@-@@@@@*@@@*:**%%#@@@@@  @@           
+         @@@@@@@@@@@#@@- @@#  *==*@@@@@@@@+@@@#           
+         +@:@@@@@@@@@@@@@+.+*@@@@@@@#%@@@@#@@*            
+            @@@@@@@@@@@@@@@@*=..:#@@#@@@@@                
+            -@@@@@@@:          -.*@@%%%@@@                
+             @@@@@@@@@@@@@@@@@@@@%@@*#@@@                 
+              @@@@@@@#-       -#@#*%%@@@      .           
+               @*%@@@@@@@@@@@@@%*@@@%*@                   
+               @@**@@@@@@=+*#@@@@@%=.@@                   
+               @@@@*+*=*%****==++  =@@@                   
+              @@@@@@@@*        .%@@@@@@             .     
+             @@:@@@@@@@@@@%*@@@@@@@@@@ @                  
+             @@@*@@@@@@@@@@#@@@@@@@@@@ @@        .        
+          @@@@@@*:@@@@@@@##**#%@@@@@@  @@        .        
+       @@@*@@@@@@@ %@@@@@@@@%@@@@@@   @@@@@               
+  .@@@@@@@ @@@@@@@@+ *@@@@%%@@@@-  %@@@@@%=@@@:           
+@@@@#:@@@@@ @@@@@@@@@  *@@%##-   @@@@%%@@@.-@@@@@@        
++-**@@@@@@@ @@@@@@@@@@@  =**  @@@@%@%@@@@@:=@@#@*@@@@@    
++@@@@@@@:@@: @@@@@@@@@@@#  -@@@@@@@@@@@@%**#@@@@@@-=@@@@@@
+@@+@@@@ #@@@:-@@@@@@     .:     @@@@@@@*-*@@@#*@@@@@-*@@%@
+@*=@@@-#@@@@@%@+@     %#-.::::    @@@@%*#@@@@@#@@@-@@=*@@@
+@#.@@@:%@@@@@@@@@@@ @@ -= :::. #**  %%*#%@@@@@#@@@=*@@.%@@
+@-#@@++%@@@%@@@@%@@@ @@ *-:-  *@.-@@@@@@@@@@@@%@@@@ @@@*@@
+@*@@=**@@@@%@@@@@@@@@ #@#-.:.@@@@=@@@@@%@@@@@*@@@@@.-@@##@
+@@@**#%@@@@@@@@@@@@@@@ =+.:: @@%+*%@@@@@@@@@@%%@@@@@ +@@@=
+@@%*%#@@@@@@@@@@@@@#@@@-*.:-. @#%*%@@@@@@@@@@@#@@@@@+ *@@+
+@@@@@@@@@@@@@@@@@@@@@@*@@%@%##@@@@@@@@@@@@@@@@@@@@@@@@#@@@`;
 ---
 
-<section id="hero" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="about" class="py-12 md:py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Top System Boot Terminal Bar -->
-    <div class="border-2 border-[#00ff66] bg-[#0a110d] p-3 sm:p-4 mb-8 sm:mb-12 brutal-shadow">
-      <div class="flex items-center justify-between border-b border-[#1a3826] pb-2 mb-3 text-xs">
-        <div class="flex items-center gap-2 text-[#00ff66]">
-          <span class="w-2.5 h-2.5 bg-[#ff0055]"></span>
-          <span class="w-2.5 h-2.5 bg-[#ffaa00]"></span>
-          <span class="w-2.5 h-2.5 bg-[#00ff66]"></span>
-          <span class="ml-2 font-bold tracking-widest uppercase">TERMINAL: SESSION_001.LOG</span>
-        </div>
-        <div class="text-zinc-400 font-mono text-[11px] hidden sm:block">
-          ARCH_LINUX_x86_64 // PID: 1337
-        </div>
-      </div>
-
-      <div class="text-xs sm:text-sm font-mono space-y-1 text-[#00ff66]">
-        <p><span class="text-zinc-400">root@mayank:~$</span> initialize_protocol --target="matrix_portfolio" --mode=brutalist</p>
-        <p class="text-zinc-400">&gt; Loading core neural frameworks... [OK]</p>
-        <p class="text-zinc-400">&gt; Establishing low-latency link with blogs.mayankkumargupta.com... [SYNCED]</p>
-        <p class="text-[#39ff14] font-bold">&gt; Welcome to the digital nexus of Mayank Kumar Gupta.</p>
-      </div>
-    </div>
-
-    <!-- Main Hero Matrix Banner -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
       
-      <div class="lg:col-span-8 space-y-6">
+      <!-- Left: Bio & Details -->
+      <div class="lg:col-span-7 space-y-6">
         
-        <div class="inline-flex items-center gap-2 border border-[#00ff66] bg-[#00ff66]/10 px-3 py-1 text-xs font-bold text-[#00ff66] uppercase tracking-widest">
-          <span class="w-2 h-2 bg-[#00ff66] animate-ping"></span>
-          AI/ML ENGINEER // BACKEND ARCHITECT // SYSTEMS HACKER
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-xs font-mono text-[#00ff66]">
+            <span class="inline-block w-2 h-2 bg-[#00ff66] rounded-full animate-ping"></span>
+            <span>Kolkata, India // Available for Opportunities</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl font-black tracking-tight text-white uppercase">
+            Mayank Kumar <span class="text-[#00ff66] text-glow">Gupta</span>
+          </h1>
+
+          <p class="text-sm sm:text-base font-semibold text-[#39ff14]">
+            Backend | AI/ML Engineer
+          </p>
         </div>
 
-        <!-- ASCII Banner on larger screens -->
-        <pre class="hidden sm:block text-[#00ff66] font-mono text-[11px] md:text-xs leading-none overflow-x-auto select-none p-3 bg-[#0a110d] border border-[#1a3826]">
- __  __    _ __   __    _    _   _ _  __
-|  \/  |  / \\ \ / /   / \  | \ | | |/ /
-| |\/| | / _ \\ V /   / _ \ |  \| | ' / 
-| |  | |/ ___ \| |   / ___ \| |\  | . \ 
-|_|  |_/_/   \_\_|  /_/   \_\_| \_|_|\_\</pre>
-
-        <h1 class="text-4xl sm:text-6xl md:text-7xl font-black tracking-tighter uppercase text-white leading-none">
-          MAYANK <span class="text-[#00ff66] text-glow">KUMAR</span> GUPTA
-        </h1>
-
-        <p class="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed">
-          Building resilient autonomous AI pipelines, high-throughput distributed backends, and low-latency systems. 
-          Alumnus of <span class="text-[#00ff66] font-bold">Lovely Professional University</span>. Engineer at 
-          <span class="text-white font-semibold">Infotech LPU</span>, <span class="text-white font-semibold">GradGlobe</span>, and beyond.
+        <p class="text-sm text-zinc-300 leading-relaxed">
+          Focused on building scalable, high-performance web applications and robust backend architectures. 
+          Experienced in developing full-stack products, responsive interfaces, and systems integrated with AI-powered services. 
+          B.Tech in Computer Science at <span class="text-white font-medium">Lovely Professional University</span>.
         </p>
 
-        <!-- Tactical Action Buttons -->
-        <div class="flex flex-wrap gap-4 pt-2">
+        <!-- Concise Stack Tags -->
+        <div class="flex flex-wrap gap-2 text-xs font-mono">
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">Python</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">Django</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">FastAPI</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">LangGraph</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">React</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">Next.js</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">PostgreSQL</span>
+          <span class="px-2.5 py-1 bg-[#0a110d] text-[#00ff66] border border-[#1a3826]">Docker</span>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono font-bold">
           <a 
-            href="#projects" 
-            class="brutal-btn bg-[#00ff66] text-[#050807] font-black px-6 py-3 border-2 border-[#00ff66] text-sm uppercase tracking-wider brutal-shadow"
-          >
-            [ EXPLORE PROJECTS ]
-          </a>
-          
-          <a 
-            href="https://blogs.mayankkumargupta.com" 
+            href={blogUrl} 
             target="_blank" 
             rel="noopener noreferrer"
-            class="brutal-btn bg-[#0a110d] text-[#00ff66] hover:bg-[#00ff66] hover:text-[#050807] font-black px-6 py-3 border-2 border-[#00ff66] text-sm uppercase tracking-wider brutal-shadow flex items-center gap-2"
+            class="matrix-btn bg-[#00ff66] text-[#050807] px-4 py-2.5 border border-[#00ff66] flex items-center gap-1.5"
           >
-            <span>ACCESS BLOG</span>
+            <span>Read Blog</span>
             <span>↗</span>
           </a>
 
           <a 
-            href="#contact" 
-            class="brutal-btn bg-transparent text-zinc-300 hover:text-white px-6 py-3 border-2 border-zinc-700 hover:border-zinc-400 text-sm uppercase tracking-wider"
+            href="#projects" 
+            class="matrix-btn bg-[#0a110d] text-[#00ff66] px-4 py-2.5 border border-[#1a3826] hover:border-[#00ff66]"
           >
-            // TRANSMIT SIGNAL
+            Projects
+          </a>
+
+          <a 
+            href="mailto:mayankcryptobyte@gmail.com" 
+            class="matrix-btn bg-transparent text-zinc-300 hover:text-white px-4 py-2.5 border border-[#1a3826] hover:border-zinc-500"
+          >
+            Get in Touch
           </a>
         </div>
 
       </div>
 
-      <!-- Right Telemetry Specs Card -->
-      <div class="lg:col-span-4">
-        <div class="border-2 border-[#00ff66] bg-[#0a110d] p-6 brutal-shadow-lg relative">
-          
-          <div class="absolute -top-3 right-4 bg-[#00ff66] text-[#050807] text-[10px] font-black px-2 py-0.5 uppercase tracking-wider">
-            SPECS_v2.6
+      <!-- Right: Authentic ASCII Portrait -->
+      <div class="lg:col-span-5 flex flex-col items-center">
+        <div class="w-full max-w-sm sm:max-w-md bg-[#050807] border border-[#1a3826] p-3 rounded box-glow">
+          <div class="flex items-center justify-between border-b border-[#1a3826] pb-2 mb-2 text-[11px] text-zinc-400 font-mono">
+            <span class="text-[#00ff66] font-bold">&gt; portrait.ascii</span>
+            <span class="text-[10px]">mayank@arch</span>
           </div>
 
-          <h2 class="text-sm font-bold text-[#00ff66] uppercase tracking-widest border-b border-[#1a3826] pb-2 mb-4">
-            &gt; SYSTEM_PROFILE
-          </h2>
-
-          <ul class="space-y-3 text-xs">
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">ALIAS:</span>
-              <span class="font-bold text-white">mayankkumargupta1</span>
-            </li>
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">BASE OS:</span>
-              <span class="font-bold text-[#00ff66]">Arch Linux (Rolling)</span>
-            </li>
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">PRIMARY FOCUS:</span>
-              <span class="font-bold text-white">AI Agents // Graph RAG</span>
-            </li>
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">ENGINEERING:</span>
-              <span class="font-bold text-[#00ff66]">FastAPI // Rust // Astro</span>
-            </li>
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">BLOG PORTAL:</span>
-              <a href="https://blogs.mayankkumargupta.com" target="_blank" rel="noopener noreferrer" class="font-bold text-[#39ff14] hover:underline flex items-center gap-1">
-                blogs.mayank... ↗
-              </a>
-            </li>
-            <li class="flex justify-between items-center py-1 border-b border-[#12241b]">
-              <span class="text-zinc-400">STATUS:</span>
-              <span class="px-1.5 py-0.5 bg-[#00ff66]/20 text-[#00ff66] font-bold border border-[#00ff66]/40">AVAILABLE</span>
-            </li>
-          </ul>
-
-          <div class="mt-6 pt-4 border-t border-[#1a3826]">
-            <div class="text-[11px] text-zinc-400 mb-2 font-bold tracking-widest uppercase">ENCRYPTED ID:</div>
-            <code class="text-[10px] text-[#39ff14] bg-[#050807] p-2 block border border-[#1a3826] break-all">
-              0xMKG::42756E2B415354524F2B5441494C57494E44
-            </code>
-          </div>
-
+          <!-- Scaled monospace rendering of exact ASCII art -->
+          <pre class="ascii-art text-[#00ff66] text-[7.5px] sm:text-[8.5px] md:text-[9.5px] leading-[1.05] overflow-x-auto select-none">{asciiPortrait}</pre>
         </div>
       </div>
 
     </div>
 
-    <!-- Quick Telemetry Stats Strip -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-      <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-4 brutal-btn">
-        <div class="text-2xl sm:text-4xl font-black text-[#00ff66] text-glow">23+</div>
-        <div class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider mt-1">// REPOSITORIES</div>
-      </div>
-      <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-4 brutal-btn">
-        <div class="text-2xl sm:text-4xl font-black text-[#00ff66] text-glow">04+</div>
-        <div class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider mt-1">// PRODUCTION APPS</div>
-      </div>
-      <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-4 brutal-btn">
-        <div class="text-2xl sm:text-4xl font-black text-[#00ff66] text-glow">14+</div>
-        <div class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider mt-1">// GITHUB STARS</div>
-      </div>
-      <div class="border-2 border-[#1a3826] hover:border-[#00ff66] bg-[#0a110d] p-4 brutal-btn">
-        <div class="text-2xl sm:text-4xl font-black text-[#39ff14] text-glow">99.9%</div>
-        <div class="text-[11px] text-zinc-400 font-bold uppercase tracking-wider mt-1">// RELIABILITY</div>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Realtime Telemetry Marquee Ticker -->
-  <div class="w-full bg-[#00ff66] text-[#050807] font-black text-xs uppercase tracking-widest py-2 mt-12 border-y-2 border-[#050807] overflow-hidden">
-    <div class="animate-marquee whitespace-nowrap">
-      <span class="mx-4">⚡ ARCH LINUX</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">FASTAPI HIGH THROUGHPUT</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">LANGCHAIN & LANGGRAPH AGENTS</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">NEO4J & MEMGRAPH GRAPH RAG</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">BLOGS.MAYANKKUMARGUPTA.COM</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">BUN + ASTRO PERFORMANCE</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">RUST SYSTEMS</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">LPU LIVE ARCHITECTURE</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">GRADGLOBE INTELLIGENCE</span>
-      <span class="mx-4">●</span>
-      <!-- Duplicate for seamless loop -->
-      <span class="mx-4">⚡ ARCH LINUX</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">FASTAPI HIGH THROUGHPUT</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">LANGCHAIN & LANGGRAPH AGENTS</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">NEO4J & MEMGRAPH GRAPH RAG</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">BLOGS.MAYANKKUMARGUPTA.COM</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">BUN + ASTRO PERFORMANCE</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">RUST SYSTEMS</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">LPU LIVE ARCHITECTURE</span>
-      <span class="mx-4">●</span>
-      <span class="mx-4">GRADGLOBE INTELLIGENCE</span>
-      <span class="mx-4">●</span>
-    </div>
   </div>
 </section>
