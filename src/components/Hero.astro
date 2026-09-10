@@ -1,5 +1,5 @@
 ---
-// Minimalist, high-status Hero section with authentic ASCII portrait
+// Minimalist, high-status Hero section with seamless ASCII portrait
 const blogUrl = "https://blogs.mayankkumargupta.com";
 
 // Verbatim ASCII portrait extracted from user's profile README (58 columns x 49 rows)
@@ -124,23 +124,15 @@ const asciiPortrait = `------------------:.                :--------------------
 
       </div>
 
-      <!-- Right: Perfectly Aligned ASCII Portrait with Glitch Effect -->
+      <!-- Right: Seamless ASCII Portrait (Blended with background, no label/box) -->
       <div class="lg:col-span-5 flex justify-center lg:justify-end">
-        <div class="w-fit bg-[#050807] border border-[#1a3826] hover:border-[#00ff66] p-3 sm:p-4 rounded box-glow transition-colors">
-          
-          <div class="flex items-center justify-between border-b border-[#1a3826] pb-2 mb-3 text-[11px] text-zinc-400 font-mono">
-            <span class="text-[#00ff66] font-bold">&gt; portrait.ascii</span>
-            <span class="text-[10px] text-zinc-500">mayank@arch</span>
-          </div>
-
-          <!-- Fixed-width, centered, monospaced ASCII portrait with periodic 7s glitch -->
-          <div class="flex justify-center items-center overflow-hidden">
-            <pre 
-              id="ascii-portrait-el" 
-              class="ascii-art glitch-portrait text-[#00ff66] text-[7px] sm:text-[8px] md:text-[9px] select-none text-center"
-            >{asciiPortrait}</pre>
-          </div>
-
+        <div class="relative select-none flex justify-center items-center py-2">
+          <!-- Monospaced ASCII art seamlessly blended into background -->
+          <pre 
+            id="ascii-portrait-el" 
+            class="ascii-art text-[#00ff66] text-[7.5px] sm:text-[8.5px] md:text-[9.5px] leading-[1.02] select-none text-center"
+            style="filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.25));"
+          >{asciiPortrait}</pre>
         </div>
       </div>
 
@@ -150,36 +142,97 @@ const asciiPortrait = `------------------:.                :--------------------
 </section>
 
 <script>
-  // Subtle character glitch synchronizer (every 7 seconds for ~220ms)
+  // Subtle localized neon flicker & text breakage glitch (fires every 7 seconds)
   const portraitEl = document.getElementById('ascii-portrait-el');
   if (portraitEl) {
     const originalText = portraitEl.textContent || '';
-    const glitchChars = '01アイウエオカキクケコサシスセソ0123456789µλπ∑⚡∆§#%*';
+    const originalLines = originalText.split('\n');
+    const glitchSymbols = '01#%*+=_~[]/\\アイウエオ⚡µ§λπ';
 
-    function triggerCharGlitch() {
-      if (document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
-      const chars = originalText.split('');
-      const len = chars.length;
-      const numGlitches = Math.floor(Math.random() * 8) + 6;
-      const mutatedIndices: number[] = [];
-
-      for (let i = 0; i < numGlitches; i++) {
-        const idx = Math.floor(Math.random() * len);
-        if (chars[idx] !== '\n' && chars[idx] !== ' ') {
-          mutatedIndices.push(idx);
-          chars[idx] = glitchChars[Math.floor(Math.random() * glitchChars.length)];
-        }
-      }
-
-      portraitEl.textContent = chars.join('');
-
-      setTimeout(() => {
-        portraitEl.textContent = originalText;
-      }, 220);
+    function escapeHtml(str: string) {
+      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
-    // Trigger glitch at exactly 7 second intervals (with initial offset sync)
-    setInterval(triggerCharGlitch, 7000);
+    function createGlitchFrame(intensity = 1) {
+      // Pick 2 to 4 lines to break horizontally
+      const brokenCount = Math.floor(Math.random() * 3 * intensity) + 2;
+      const brokenLineIndices = new Set<number>();
+      while (brokenLineIndices.size < brokenCount) {
+        brokenLineIndices.add(Math.floor(Math.random() * originalLines.length));
+      }
+
+      const processedLines = originalLines.map((line, idx) => {
+        let currentLine = line;
+
+        // 1. Text breakage / horizontal character displacement
+        if (brokenLineIndices.has(idx)) {
+          const shift = Math.floor(Math.random() * 4) + 2;
+          let corruptChars = '';
+          for (let c = 0; c < shift; c++) {
+            corruptChars += glitchSymbols[Math.floor(Math.random() * glitchSymbols.length)];
+          }
+          currentLine = corruptChars + currentLine.slice(0, Math.max(0, 58 - shift));
+
+          // Highlight the broken segment
+          const sliceStart = Math.floor(Math.random() * 15) + 5;
+          const sliceLen = Math.floor(Math.random() * 12) + 6;
+          const p1 = currentLine.slice(0, sliceStart);
+          const p2 = currentLine.slice(sliceStart, sliceStart + sliceLen);
+          const p3 = currentLine.slice(sliceStart + sliceLen);
+          return escapeHtml(p1) + `<span class="neon-glitch-corrupt">${escapeHtml(p2)}</span>` + escapeHtml(p3);
+        }
+
+        // 2. Random localized neon green / bright white hotspots
+        if (Math.random() < 0.25 * intensity) {
+          const nonSpaceIndices: number[] = [];
+          for (let i = 0; i < currentLine.length; i++) {
+            if (currentLine[i] !== ' ') nonSpaceIndices.push(i);
+          }
+          if (nonSpaceIndices.length > 6) {
+            const pick = nonSpaceIndices[Math.floor(Math.random() * (nonSpaceIndices.length - 4))];
+            const spanLen = Math.floor(Math.random() * 8) + 3;
+            const cls = Math.random() < 0.35 ? 'neon-hotspot-white' : 'neon-hotspot';
+            const before = currentLine.slice(0, pick);
+            const mid = currentLine.slice(pick, pick + spanLen);
+            const after = currentLine.slice(pick + spanLen);
+            return escapeHtml(before) + `<span class="${cls}">${escapeHtml(mid)}</span>` + escapeHtml(after);
+          }
+        }
+
+        return escapeHtml(currentLine);
+      });
+
+      return processedLines.join('\n');
+    }
+
+    function triggerGlitchBurst() {
+      if (document.hidden || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      // Frame 1 (t=0ms): sudden neon sparks & broken lines
+      portraitEl.innerHTML = createGlitchFrame(1.3);
+
+      // Frame 2 (t=80ms): rapid secondary break in different rows
+      setTimeout(() => {
+        portraitEl.innerHTML = createGlitchFrame(1.6);
+      }, 80);
+
+      // Frame 3 (t=170ms): third shift
+      setTimeout(() => {
+        portraitEl.innerHTML = createGlitchFrame(1.0);
+      }, 170);
+
+      // Frame 4 (t=270ms): settling sparks
+      setTimeout(() => {
+        portraitEl.innerHTML = createGlitchFrame(0.5);
+      }, 270);
+
+      // Frame 5 (t=380ms): cleanly restore original pristine text
+      setTimeout(() => {
+        portraitEl.textContent = originalText;
+      }, 380);
+    }
+
+    // Trigger every 4 seconds
+    setInterval(triggerGlitchBurst, 4000);
   }
 </script>
